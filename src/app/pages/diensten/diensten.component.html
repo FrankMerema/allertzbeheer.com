@@ -1,0 +1,214 @@
+<main class="pb-stack-lg">
+  <app-page-hero
+    eyebrow="Onze Expertise"
+    titlePrefix="Strategische Consultancy &"
+    titleHighlight="Bestuurlijke Facilitering."
+    description="Allertz Beheer B.V. biedt hoogwaardige ondersteuning bij complexe veranderingsprocessen, medezeggenschap en toezicht. Wij slaan de brug tussen zakelijke ambities en maatschappelijke impact."
+    primaryLabel="Plan een Gesprek"
+    primaryRoute="/contact"
+    secondaryLabel="Bekijk Diensten"
+    secondaryHref="#kerngebieden"
+  ></app-page-hero>
+
+  <section class="mx-auto max-w-[1200px] space-y-stack-md px-6 md:px-8" id="kerngebieden">
+    <app-section-heading
+      title="Kerngebieden van Dienstverlening"
+      [centered]="true"
+      [showAccent]="true"
+    ></app-section-heading>
+
+    <div class="grid grid-cols-1 gap-gutter md:grid-cols-3">
+      <article
+        class="group rounded-xl border border-outline-variant bg-white p-10 transition-all duration-300 hover:border-primary/30 hover:shadow-md md:col-span-2"
+      >
+        <div class="flex h-full flex-col justify-between">
+          <div>
+            <span class="material-symbols-outlined mb-6 text-4xl text-primary">dynamic_form</span>
+            <h3
+              class="mb-4 font-headline-md text-headline-md transition-colors group-hover:text-primary"
+            >
+              Verandermanagement
+            </h3>
+            <p class="font-body-md leading-relaxed text-on-surface-variant">
+              Begeleiding van organisaties door complexe transformaties. Wij focussen op de
+              menselijke kant van verandering, waarbij we structurele aanpassingen koppelen aan
+              cultuurverandering en draagvlak binnen de profit en non-profit sector.
+            </p>
+          </div>
+          <ul
+            class="mt-8 grid grid-cols-1 gap-4 border-t border-surface-container pt-8 sm:grid-cols-2"
+          >
+            <li class="flex items-center gap-2 text-sm text-secondary">
+              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+              Strategische Analyse
+            </li>
+            <li class="flex items-center gap-2 text-sm text-secondary">
+              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+              Cultuurdiagnose
+            </li>
+            <li class="flex items-center gap-2 text-sm text-secondary">
+              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+              Implementatiebegeleiding
+            </li>
+            <li class="flex items-center gap-2 text-sm text-secondary">
+              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+              Coaching van Leiderschap
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article
+        class="group rounded-xl border border-outline-variant bg-surface-container-low p-8 transition-all duration-300 hover:shadow-md"
+      >
+        <span class="material-symbols-outlined mb-6 text-4xl text-primary">visibility</span>
+        <h3
+          class="mb-4 font-headline-md text-headline-md transition-colors group-hover:text-primary"
+        >
+          Toezicht &amp; Bestuur
+        </h3>
+        <p class="font-body-md leading-relaxed text-on-surface-variant">
+          Onafhankelijke invulling van toezichthoudende rollen (RvC/RvT). Wij waarborgen corporate
+          governance en bieden een kritisch, maar constructief klankbord voor besturen in dynamische
+          omgevingen.
+        </p>
+        <div
+          class="mt-12 rounded border border-outline-variant/30 bg-white/50 p-4 text-sm italic text-secondary"
+        >
+          "Focus op integer bestuur en lange-termijn waardecreatie."
+        </div>
+      </article>
+
+      <article
+        class="group rounded-xl border border-outline-variant bg-white p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+      >
+        <span class="material-symbols-outlined mb-6 text-4xl text-primary">groups</span>
+        <h3
+          class="mb-4 font-headline-md text-headline-md transition-colors group-hover:text-primary"
+        >
+          Medezeggenschap
+        </h3>
+        <p class="font-body-md leading-relaxed text-on-surface-variant">
+          Expertise in het faciliteren van de relatie tussen directie en Ondernemingsraad (OR). Wij
+          ondersteunen bij de inrichting van participatieprocessen die werkelijk waarde toevoegen
+          aan de besluitvorming.
+        </p>
+      </article>
+
+      <article
+        class="group relative overflow-hidden rounded-xl bg-inverse-surface p-8 text-white transition-all duration-300 md:col-span-2"
+      >
+        <div class="relative z-10">
+          <span class="material-symbols-outlined mb-6 text-4xl text-primary-fixed">forum</span>
+          <h3 class="mb-4 font-headline-md text-headline-md text-white">Project Facilitering</h3>
+          <p class="max-w-xl font-body-md leading-relaxed text-surface-variant">
+            Het leiden van strategische sessies, heidagen en complexe overlegstructuren. Allertz
+            Beheer fungeert als de neutrale procesbegeleider die resultaten boekt zonder de
+            inhoudelijke regie van de opdrachtgever over te nemen.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <span class="rounded-full bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
+              >Profit Sector</span
+            >
+            <span class="rounded-full bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
+              >Non-Profit</span
+            >
+            <span class="rounded-full bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
+              >Overheid</span
+            >
+          </div>
+        </div>
+        <div class="absolute -bottom-10 -right-10 opacity-5">
+          <span class="material-symbols-outlined text-[200px]">settings_suggest</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto mt-24 max-w-[1200px] rounded-[1rem] bg-surface-container px-6 py-16 md:px-8"
+  >
+    <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+      <div>
+        <h2 class="mb-6 font-headline-lg text-headline-lg">
+          Een Dubbel Focus: Profit &amp; Non-Profit
+        </h2>
+        <p class="mb-8 font-body-md leading-relaxed text-on-surface-variant">
+          Wij begrijpen de unieke dynamiek van beide werelden. Of het nu gaat om het optimaliseren
+          van rendement in het bedrijfsleven of het realiseren van maatschappelijke doelstellingen
+          in de zorg, het onderwijs of woningbouwcorporaties; onze methodieken zijn universeel maar
+          de toepassing is altijd maatwerk.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-outline-variant bg-white"
+            >
+              <span class="material-symbols-outlined text-primary">business</span>
+            </div>
+            <div>
+              <p class="font-bold text-on-surface">Corporate Reliability</p>
+              <p class="text-sm text-secondary">
+                Gestructureerde processen en heldere KPI's voor zakelijk succes.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-outline-variant bg-white"
+            >
+              <span class="material-symbols-outlined text-primary">volunteer_activism</span>
+            </div>
+            <div>
+              <p class="font-bold text-on-surface">Intellectual Rigor</p>
+              <p class="text-sm text-secondary">
+                Diepgaande analyse van complexe maatschappelijke vraagstukken.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div
+          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+        >
+          <p class="font-headline-md text-primary">Profit</p>
+          <p class="mt-2 text-xs uppercase tracking-widest text-secondary">
+            Efficiëntie &amp; Groei
+          </p>
+        </div>
+        <div
+          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+        >
+          <p class="font-headline-md text-primary">Zorg</p>
+          <p class="mt-2 text-xs uppercase tracking-widest text-secondary">
+            Kwaliteit &amp; Continuïteit
+          </p>
+        </div>
+        <div
+          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+        >
+          <p class="font-headline-md text-primary">Wonen</p>
+          <p class="mt-2 text-xs uppercase tracking-widest text-secondary">Maatschappelijke Rol</p>
+        </div>
+        <div
+          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+        >
+          <p class="font-headline-md text-primary">Overheid</p>
+          <p class="mt-2 text-xs uppercase tracking-widest text-secondary">Transparantie</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-cta-panel
+    title="Klaar voor de volgende stap?"
+    description="Neem vandaag nog contact op voor een vrijblijvende kennismaking en ontdek hoe Allertz Beheer B.V. uw organisatie kan versterken."
+    primaryLabel="Plan een Gesprek"
+    primaryRoute="/contact"
+    secondaryLabel="Download Brochure"
+    secondaryRoute="/contact"
+    [centered]="true"
+  ></app-cta-panel>
+</main>

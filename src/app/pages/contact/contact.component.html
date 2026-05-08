@@ -1,0 +1,170 @@
+<main class="pb-stack-lg">
+  <app-page-hero
+    eyebrow="Contact"
+    titlePrefix="Neem"
+    titleHighlight="contact"
+    titleSuffix=" op"
+    description="Heeft u vragen over onze management consultancy diensten of wilt u een afspraak maken? Wij staan klaar om u te ondersteunen bij uw strategische uitdagingen."
+    primaryLabel="Vraag Advies aan"
+    primaryHref="#contact-form"
+    secondaryLabel="Direct contact"
+    secondaryHref="#contact-info"
+  ></app-page-hero>
+
+  <div class="mx-auto max-w-[1200px] px-6 md:px-8">
+    <div class="grid grid-cols-1 gap-gutter scroll-mt-32 md:grid-cols-12" id="contact-info">
+      <div class="space-y-gutter md:col-span-4">
+        <section
+          class="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-md"
+        >
+          <h2 class="mb-stack-md font-headline-md text-headline-md text-primary">Direct Contact</h2>
+          <div class="space-y-6">
+            <app-contact-info-item
+              icon="mail"
+              label="E-mail"
+              value="info@allertzbeheer.nl"
+              href="mailto:info@allertzbeheer.nl"
+            ></app-contact-info-item>
+            <app-contact-info-item
+              icon="call"
+              label="Telefoon"
+              value="+31 (0)20 123 4567"
+              href="tel:+31000000000"
+            ></app-contact-info-item>
+            <app-contact-info-item
+              icon="location_on"
+              label="Hoofdkantoor"
+              value="Business Park Amsterdam"
+              secondaryValue="1083 HJ Amsterdam"
+            ></app-contact-info-item>
+          </div>
+        </section>
+
+        <section
+          class="rounded-xl border border-outline-variant bg-surface-container-low p-stack-md"
+        >
+          <h2 class="mb-stack-sm font-headline-md text-headline-md text-on-surface">LinkedIn</h2>
+          <p class="mb-stack-md text-body-md text-on-surface-variant">
+            Blijf op de hoogte van onze laatste inzichten en projecten via ons professionele
+            netwerk.
+          </p>
+          <a
+            class="inline-flex items-center gap-2 font-medium text-primary hover:underline"
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Bezoek ons profiel
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+        </section>
+      </div>
+
+      <div class="md:col-span-8">
+        <div
+          class="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-md md:p-stack-lg"
+        >
+          <form class="space-y-6" id="contact-form">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div class="space-y-2">
+                <label class="font-label-sm text-label-sm text-on-surface-variant" for="firstName">
+                  Voornaam
+                </label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  placeholder="Uw voornaam"
+                  type="text"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="font-label-sm text-label-sm text-on-surface-variant" for="lastName">
+                  Achternaam
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  placeholder="Uw achternaam"
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-on-surface-variant" for="email">
+                E-mailadres
+              </label>
+              <input
+                id="email"
+                name="email"
+                class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                placeholder="email@bedrijf.nl"
+                type="email"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-on-surface-variant" for="subject">
+                Onderwerp
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                class="w-full appearance-none rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+              >
+                <option>Management Consultancy</option>
+                <option>Interim Management</option>
+                <option>Strategisch Advies</option>
+                <option>Anders</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-on-surface-variant" for="message">
+                Bericht
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="w-full resize-none rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                placeholder="Hoe kunnen wij u helpen?"
+                rows="5"
+              ></textarea>
+            </div>
+
+            <div class="pt-4">
+              <button
+                class="w-full rounded-lg bg-primary px-10 py-4 font-headline-md text-on-primary transition-all hover:brightness-110 active:scale-95 md:w-auto"
+                type="submit"
+              >
+                Verstuur Bericht
+              </button>
+              <p class="mt-4 text-xs text-gray-400">
+                Door het formulier te verzenden, gaat u akkoord met onze privacyverklaring.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="relative mt-stack-lg h-[400px] overflow-hidden rounded-xl border border-outline-variant"
+    >
+      <img
+        alt="Placeholder afbeelding"
+        class="h-full w-full object-cover"
+        src="https://images.placeholders.dev/?width=1024&height=512&text=Placeholder&bgColor=%23f1f4f9&textColor=%233f4850"
+      />
+      <div class="pointer-events-none absolute inset-0 bg-primary/5"></div>
+      <div
+        class="absolute bottom-6 left-6 max-w-xs rounded-lg border border-outline-variant bg-white p-4 shadow-sm"
+      >
+        <p class="font-bold text-on-surface">Hoofdkantoor</p>
+        <p class="text-sm text-on-surface-variant">Hartelstein 7, 6002 VL Weert, Nederland</p>
+      </div>
+    </div>
+  </div>
+</main>
