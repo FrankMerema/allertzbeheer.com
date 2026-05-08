@@ -7,7 +7,7 @@ const angular = require('angular-eslint');
 
 module.exports = defineConfig([
   {
-    ignores: ['coverage/**', 'dist/**', 'node_modules/**', 'tmp/**'],
+    ignores: ['coverage/**', 'dist/**', 'node_modules/**', 'tmp/**', 'stitch-export/**'],
   },
   {
     files: ['**/*.ts'],
