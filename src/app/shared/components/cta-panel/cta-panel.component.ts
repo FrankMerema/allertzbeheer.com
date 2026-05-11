@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cta-panel',
-  standalone: true,
   imports: [RouterLink],
   template: `
     @if (centered()) {

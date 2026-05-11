@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-site-footer',
-  standalone: true,
   imports: [RouterLink],
   template: `
     <footer class="border-t border-surface-variant bg-surface-container-low">

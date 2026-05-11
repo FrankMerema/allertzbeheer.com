@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-contact-info-item',
-  standalone: true,
   template: `
     <div class="flex items-start gap-4">
       <span class="material-symbols-outlined text-primary">{{ icon() }}</span>

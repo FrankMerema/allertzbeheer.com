@@ -7,7 +7,6 @@ import { SectionHeadingComponent } from '../../shared/components/section-heading
 
 @Component({
   selector: 'app-expertise-page',
-  standalone: true,
   imports: [RouterLink, PageHeroComponent, SectionHeadingComponent, CtaPanelComponent],
   templateUrl: './expertise.component.html',
 })

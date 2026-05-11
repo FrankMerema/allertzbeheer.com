@@ -7,7 +7,6 @@ import { StatCardComponent } from '../../shared/components/stat-card/stat-card.c
 
 @Component({
   selector: 'app-home-page',
-  standalone: true,
   imports: [RouterLink, PageHeroComponent, SectionHeadingComponent, StatCardComponent],
   templateUrl: './home.component.html',
 })

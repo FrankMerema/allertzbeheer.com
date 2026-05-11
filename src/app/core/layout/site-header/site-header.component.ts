@@ -3,7 +3,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-site-header',
-  standalone: true,
   imports: [RouterLink, RouterLinkActive],
   template: `
     <header

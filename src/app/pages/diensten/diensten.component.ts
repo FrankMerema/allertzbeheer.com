@@ -6,7 +6,6 @@ import { SectionHeadingComponent } from '../../shared/components/section-heading
 
 @Component({
   selector: 'app-diensten-page',
-  standalone: true,
   imports: [PageHeroComponent, SectionHeadingComponent, CtaPanelComponent],
   templateUrl: './diensten.component.html',
 })

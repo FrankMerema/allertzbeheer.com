@@ -5,7 +5,6 @@ import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.c
 
 @Component({
   selector: 'app-contact-page',
-  standalone: true,
   imports: [PageHeroComponent, ContactInfoItemComponent],
   templateUrl: './contact.component.html',
 })

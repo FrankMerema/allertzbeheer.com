@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-page-hero',
-  standalone: true,
   imports: [RouterLink],
   template: `
     <section class="mx-auto mb-20 max-w-[1200px] px-6 pt-16 md:px-8">

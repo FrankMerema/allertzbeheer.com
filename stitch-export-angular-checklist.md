@@ -16,6 +16,50 @@ src/app/
 
 ---
 
+## Current repo audit — 2026-05-11
+
+### Completed in the repo
+
+- Angular standalone routing is in place for `/`, `/diensten`, `/expertise`, and `/contact`.
+- Tailwind + PostCSS are configured locally, including Stitch-style tokens in `tailwind.config.js`.
+- Global fonts/icons are loaded in `src/index.html` and base styles are set in `src/styles.css`.
+- Shared shell components exist for the header and footer.
+- All 4 pages exist as standalone route components.
+- Several reusable UI blocks have already been extracted:
+  - `page-hero`
+  - `section-heading`
+  - `stat-card`
+  - `cta-panel`
+  - `contact-info-item`
+- Router polish is partly done:
+  - active nav highlighting works
+  - page titles are set per route
+  - scroll restoration and anchor scrolling are now enabled in `src/app/app.config.ts`
+- Automated project checks passed on 2026-05-11:
+  - `pnpm lint`
+  - `pnpm build`
+  - `pnpm test`
+
+### Still incomplete or needing validation
+
+- The checklist itself has not yet been fully checked off phase-by-phase.
+- Visual comparison against all 4 Stitch screenshots is still pending.
+- Some content is still placeholder or provisional:
+  - LinkedIn URL
+  - contact phone/address details should be confirmed as final
+  - privacy/brochure destinations are not fully defined
+- Asset localization is mostly done for the logo, and the contact map placeholder is now local, but the repo still needs a final pass to confirm all intended external assets are either localized or explicitly accepted.
+- Accessibility and responsive QA still need a deliberate review rather than code-only inspection.
+- The contact form is still a static first pass and has not been converted to a reactive form.
+
+### Best next improvements
+
+1. Do a visual QA pass against the 4 exported screenshots and adjust spacing/typography where needed.
+2. Replace placeholder business data and external links with final content.
+3. Decide whether the contact form stays static or becomes a real reactive form.
+4. Finish the asset audit and keep only intentional external dependencies.
+5. Update this checklist phase-by-phase with verified `[x]` items after manual QA.
+
 # Phase 0 — Prep
 
 ## 0.1 Review source pages
@@ -384,9 +428,9 @@ Good candidates:
 
 ## 10.1 Router polish
 
-- [ ] active nav highlighting works on all pages
-- [ ] page titles can be set per route/component
-- [ ] scroll restoration behaves properly
+- [x] active nav highlighting works on all pages
+- [x] page titles can be set per route/component
+- [x] scroll restoration behaves properly
 
 ## 10.2 Accessibility pass
 
@@ -442,9 +486,9 @@ Specifically verify:
 
 ## 12.1 Run project checks
 
-- [ ] `pnpm lint`
-- [ ] `pnpm build`
-- [ ] `pnpm test`
+- [x] `pnpm lint`
+- [x] `pnpm build`
+- [x] `pnpm test`
 
 ## 12.2 Manual QA
 

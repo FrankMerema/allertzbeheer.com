@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-section-heading',
-  standalone: true,
   template: `
     <div [class]="wrapperClass()">
       <h2 [class]="titleClass()">{{ title() }}</h2>
