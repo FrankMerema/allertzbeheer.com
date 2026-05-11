@@ -1,29 +1,27 @@
 import { Routes } from '@angular/router';
 
-import { ContactComponent } from './pages/contact/contact.component';
-import { DienstenComponent } from './pages/diensten/diensten.component';
-import { ExpertiseComponent } from './pages/expertise/expertise.component';
-import { HomeComponent } from './pages/home/home.component';
-
 export const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
     title: 'Home | Allertz Beheer B.V.',
   },
   {
     path: 'diensten',
-    component: DienstenComponent,
+    loadComponent: () =>
+      import('./pages/diensten/diensten.component').then((m) => m.DienstenComponent),
     title: 'Diensten | Allertz Beheer B.V.',
   },
   {
     path: 'expertise',
-    component: ExpertiseComponent,
+    loadComponent: () =>
+      import('./pages/expertise/expertise.component').then((m) => m.ExpertiseComponent),
     title: 'Expertise | Allertz Beheer B.V.',
   },
   {
     path: 'contact',
-    component: ContactComponent,
+    loadComponent: () =>
+      import('./pages/contact/contact.component').then((m) => m.ContactComponent),
     title: 'Contact | Allertz Beheer B.V.',
   },
   {
