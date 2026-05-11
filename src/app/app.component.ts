@@ -1,16 +1,17 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, startWith } from 'rxjs';
 
+import { I18nService } from './core/i18n/i18n.service';
 import { SiteFooterComponent } from './core/layout/site-footer/site-footer.component';
 import { SiteHeaderComponent } from './core/layout/site-header/site-header.component';
 
 const SITE_NAME = 'Allertz Beheer B.V.';
-const DEFAULT_DESCRIPTION =
-  'Allertz Beheer B.V. begeleidt organisaties bij complexe veranderingsprocessen, medezeggenschap, toezicht en strategisch managementadvies.';
+const DEFAULT_DESCRIPTION_KEY = 'seo.home.description';
+const DEFAULT_TITLE_KEY = 'seo.home.title';
 const SOCIAL_IMAGE_PATH = 'images/brand/social-preview.svg';
 
 @Component({
@@ -25,6 +26,7 @@ export class AppComponent {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly document = inject(DOCUMENT);
+  private readonly i18n = inject(I18nService);
 
   constructor() {
     this.router.events
@@ -34,12 +36,19 @@ export class AppComponent {
         takeUntilDestroyed(),
       )
       .subscribe(() => this.updateSeoMetadata());
+
+    effect(() => {
+      this.i18n.language();
+      this.updateSeoMetadata();
+    });
   }
 
   private updateSeoMetadata(): void {
     const activeRoute = this.getDeepestRoute(this.activatedRoute);
-    const routeTitle = activeRoute.snapshot.title?.toString() ?? SITE_NAME;
-    const description = activeRoute.snapshot.data['description'] ?? DEFAULT_DESCRIPTION;
+    const titleKey = activeRoute.snapshot.data['titleKey'] ?? DEFAULT_TITLE_KEY;
+    const descriptionKey = activeRoute.snapshot.data['descriptionKey'] ?? DEFAULT_DESCRIPTION_KEY;
+    const routeTitle = this.i18n.translate(titleKey);
+    const description = this.i18n.translate(descriptionKey);
     const canonicalPath = activeRoute.snapshot.data['canonicalPath'] ?? this.router.url;
     const siteBaseUrl = this.document.baseURI;
     const canonicalUrl = new URL(this.toAppRelativePath(canonicalPath), siteBaseUrl).toString();
@@ -55,7 +64,10 @@ export class AppComponent {
     this.meta.updateTag({ property: 'og:url', content: canonicalUrl });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ property: 'og:site_name', content: SITE_NAME });
-    this.meta.updateTag({ property: 'og:locale', content: 'nl_NL' });
+    this.meta.updateTag({
+      property: 'og:locale',
+      content: this.i18n.language() === 'nl' ? 'nl_NL' : 'en_GB',
+    });
     this.meta.updateTag({ property: 'og:image', content: socialImageUrl });
     this.meta.updateTag({ property: 'og:image:width', content: '1200' });
     this.meta.updateTag({ property: 'og:image:height', content: '630' });

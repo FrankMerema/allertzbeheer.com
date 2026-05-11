@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-page-hero',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   template: `
     <section
       class="relative mx-auto mb-14 max-w-[1200px] px-5 pb-4 pt-8 sm:px-6 md:mb-20 md:px-8 md:pt-12"
@@ -82,7 +83,7 @@ import { RouterLink } from '@angular/router';
               class="relative z-10 aspect-square overflow-hidden rounded-[1.3rem] border border-white/70 bg-white/90 shadow-inner"
             >
               <img
-                [alt]="imageAlt()"
+                [alt]="imageAlt() ?? ('common.logoAlt' | t)"
                 class="h-full w-full bg-white object-contain p-10 sm:p-12"
                 [src]="imageSrc()"
                 width="115"
@@ -108,7 +109,9 @@ import { RouterLink } from '@angular/router';
               </span>
               <div>
                 <p class="mb-1 font-headline-md leading-none text-primary">{{ statValue() }}</p>
-                <p class="font-label-sm text-secondary">{{ statLabel() }}</p>
+                <p class="font-label-sm text-secondary">
+                  {{ statLabel() ?? ('common.yearsExperience' | t) }}
+                </p>
               </div>
             </div>
           </div>
@@ -130,7 +133,7 @@ export class PageHeroComponent {
   readonly secondaryRoute = input<string | null>(null);
   readonly secondaryHref = input<string | null>(null);
   readonly imageSrc = input('images/brand/logo.png');
-  readonly imageAlt = input('Allertz Beheer B.V. logo');
+  readonly imageAlt = input<string | null>(null);
   readonly statValue = input('20+');
-  readonly statLabel = input('Jaren ervaring');
+  readonly statLabel = input<string | null>(null);
 }
