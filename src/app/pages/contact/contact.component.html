@@ -64,7 +64,26 @@
         <div
           class="rounded-xl border border-outline-variant bg-surface-container-lowest p-stack-md md:p-stack-lg"
         >
-          <form class="space-y-6" id="contact-form">
+          <form [formRoot]="contactForm" class="space-y-6" id="contact-form">
+            @if (submissionMessage(); as message) {
+              <div
+                aria-live="polite"
+                class="rounded-lg border border-primary/20 bg-primary-fixed/40 px-4 py-3 text-sm text-on-primary-fixed"
+              >
+                {{ message }}
+              </div>
+            }
+
+            @if (submitAttempted() && contactForm().invalid()) {
+              <div
+                aria-live="assertive"
+                class="rounded-lg border border-error/20 bg-error-container px-4 py-3 text-sm text-on-error-container"
+                role="alert"
+              >
+                Controleer de gemarkeerde velden en probeer het opnieuw.
+              </div>
+            }
+
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div class="space-y-2">
                 <label class="font-label-sm text-label-sm text-on-surface-variant" for="firstName">
@@ -72,23 +91,36 @@
                 </label>
                 <input
                   id="firstName"
-                  name="firstName"
+                  autocomplete="given-name"
                   class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  [class.border-error]="shouldShowError(contactForm.firstName)"
+                  [attr.aria-invalid]="shouldShowError(contactForm.firstName) ? 'true' : 'false'"
+                  [formField]="contactForm.firstName"
                   placeholder="Uw voornaam"
                   type="text"
                 />
+                @if (errorMessage(contactForm.firstName); as error) {
+                  <p class="text-sm text-error" role="alert">{{ error }}</p>
+                }
               </div>
+
               <div class="space-y-2">
                 <label class="font-label-sm text-label-sm text-on-surface-variant" for="lastName">
                   Achternaam
                 </label>
                 <input
                   id="lastName"
-                  name="lastName"
+                  autocomplete="family-name"
                   class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  [class.border-error]="shouldShowError(contactForm.lastName)"
+                  [attr.aria-invalid]="shouldShowError(contactForm.lastName) ? 'true' : 'false'"
+                  [formField]="contactForm.lastName"
                   placeholder="Uw achternaam"
                   type="text"
                 />
+                @if (errorMessage(contactForm.lastName); as error) {
+                  <p class="text-sm text-error" role="alert">{{ error }}</p>
+                }
               </div>
             </div>
 
@@ -98,11 +130,17 @@
               </label>
               <input
                 id="email"
-                name="email"
+                autocomplete="email"
                 class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                [class.border-error]="shouldShowError(contactForm.email)"
+                [attr.aria-invalid]="shouldShowError(contactForm.email) ? 'true' : 'false'"
+                [formField]="contactForm.email"
                 placeholder="email@bedrijf.nl"
                 type="email"
               />
+              @if (errorMessage(contactForm.email); as error) {
+                <p class="text-sm text-error" role="alert">{{ error }}</p>
+              }
             </div>
 
             <div class="space-y-2">
@@ -111,14 +149,19 @@
               </label>
               <select
                 id="subject"
-                name="subject"
                 class="w-full appearance-none rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                [class.border-error]="shouldShowError(contactForm.subject)"
+                [attr.aria-invalid]="shouldShowError(contactForm.subject) ? 'true' : 'false'"
+                [formField]="contactForm.subject"
               >
-                <option>Management Consultancy</option>
-                <option>Interim Management</option>
-                <option>Strategisch Advies</option>
-                <option>Anders</option>
+                <option value="">Kies een onderwerp</option>
+                @for (subject of subjects; track subject.value) {
+                  <option [value]="subject.value">{{ subject.label }}</option>
+                }
               </select>
+              @if (errorMessage(contactForm.subject); as error) {
+                <p class="text-sm text-error" role="alert">{{ error }}</p>
+              }
             </div>
 
             <div class="space-y-2">
@@ -127,21 +170,39 @@
               </label>
               <textarea
                 id="message"
-                name="message"
+                autocomplete="off"
                 class="w-full resize-none rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/10"
+                [class.border-error]="shouldShowError(contactForm.message)"
+                [attr.aria-invalid]="shouldShowError(contactForm.message) ? 'true' : 'false'"
+                [formField]="contactForm.message"
                 placeholder="Hoe kunnen wij u helpen?"
-                rows="5"
+                rows="6"
               ></textarea>
+              <div class="flex items-center justify-between gap-4 text-xs text-on-surface-variant">
+                <span>Beschrijf kort uw vraag, context en gewenste ondersteuning.</span>
+                <span>
+                  {{ contactForm.message().value().length }}/
+                  {{ contactForm.message().maxLength?.() ?? 1500 }}
+                </span>
+              </div>
+              @if (errorMessage(contactForm.message); as error) {
+                <p class="text-sm text-error" role="alert">{{ error }}</p>
+              }
             </div>
 
             <div class="pt-4">
               <button
-                class="w-full rounded-lg bg-primary px-10 py-4 font-headline-md text-on-primary transition-all hover:brightness-110 active:scale-95 md:w-auto"
+                class="w-full rounded-lg bg-primary px-10 py-4 font-headline-md text-on-primary transition-all hover:brightness-110 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
+                [disabled]="contactForm().submitting()"
                 type="submit"
               >
-                Verstuur Bericht
+                @if (contactForm().submitting()) {
+                  Bericht wordt verstuurd...
+                } @else {
+                  Verstuur Bericht
+                }
               </button>
-              <p class="mt-4 text-xs text-gray-400">
+              <p class="mt-4 text-xs text-on-surface-variant">
                 Door het formulier te verzenden, gaat u akkoord met onze privacyverklaring.
               </p>
             </div>
@@ -154,9 +215,9 @@
       class="relative mt-stack-lg h-[400px] overflow-hidden rounded-xl border border-outline-variant"
     >
       <img
-        alt="Placeholder afbeelding"
+        alt="Gestileerde kaartweergave van de regio rond het hoofdkantoor"
         class="h-full w-full object-cover"
-        src="https://images.placeholders.dev/?width=1024&height=512&text=Placeholder&bgColor=%23f1f4f9&textColor=%233f4850"
+        src="/images/contact/map-placeholder.svg"
       />
       <div class="pointer-events-none absolute inset-0 bg-primary/5"></div>
       <div
