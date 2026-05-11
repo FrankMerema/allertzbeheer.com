@@ -1,0 +1,249 @@
+<main class="pb-stack-lg" id="main-content">
+  <app-page-hero
+    eyebrow="Contact"
+    titlePrefix="Neem"
+    titleHighlight="contact"
+    titleSuffix=" op"
+    description="Heeft u vragen over onze dienstverlening of wilt u een afspraak maken? Wij denken graag met u mee over uw strategische vraagstukken."
+    primaryLabel="Vraag advies aan"
+    primaryHref="#contact-form"
+    secondaryLabel="Direct contact"
+    secondaryHref="tel:+31612345678"
+  ></app-page-hero>
+
+  <div class="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-8">
+    <div
+      class="grid grid-cols-1 gap-5 scroll-mt-32 md:grid-cols-12 md:gap-gutter"
+      id="contact-info"
+    >
+      <div class="space-y-5 md:col-span-4 md:space-y-gutter">
+        <section
+          class="rounded-[1.5rem] border border-white/80 bg-white/95 p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.3)] sm:p-8"
+        >
+          <h2 class="mb-stack-md text-balance font-headline-md text-headline-md text-primary">
+            Direct contact
+          </h2>
+          <div class="space-y-6">
+            <app-contact-info-item
+              icon="mail"
+              label="E-mail"
+              value="info@allertzbeheer.nl"
+              href="mailto:info@allertzbeheer.nl"
+            ></app-contact-info-item>
+            <app-contact-info-item
+              icon="call"
+              label="Telefoon"
+              value="+31 (0)20 123 4567"
+              href="tel:+31201234567"
+            ></app-contact-info-item>
+            <app-contact-info-item
+              icon="location_on"
+              label="Hoofdkantoor"
+              value="Hartelstein 7"
+              secondaryValue="6002 VL Weert, Nederland"
+            ></app-contact-info-item>
+          </div>
+        </section>
+
+        <section
+          class="rounded-[1.5rem] border border-white/75 bg-[linear-gradient(180deg,rgba(241,244,249,0.92),rgba(255,255,255,0.94))] p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.22)] sm:p-8"
+        >
+          <h2 class="mb-stack-sm text-balance font-headline-md text-headline-md text-on-surface">
+            LinkedIn
+          </h2>
+          <p class="mb-stack-md text-body-md text-on-surface-variant">
+            Blijf op de hoogte van onze laatste inzichten en projecten via ons professionele
+            netwerk.
+          </p>
+          <p class="rounded-xl bg-white px-4 py-3 text-sm text-on-surface-variant shadow-sm">
+            Ons LinkedIn-profiel wordt binnenkort toegevoegd.
+          </p>
+        </section>
+      </div>
+
+      <div class="md:col-span-8">
+        <div
+          class="rounded-[1.6rem] border border-white/80 bg-white/96 p-6 shadow-[0_28px_70px_-40px_rgba(24,28,32,0.35)] sm:p-8 md:p-stack-lg"
+        >
+          <form
+            [formRoot]="contactForm"
+            class="space-y-6 scroll-mt-32"
+            id="contact-form"
+            novalidate
+          >
+            @if (submissionMessage(); as message) {
+              <div
+                aria-live="polite"
+                class="rounded-xl border border-primary/20 bg-primary-fixed/40 px-4 py-3 text-sm text-on-primary-fixed"
+              >
+                {{ message }}
+              </div>
+            }
+
+            @if (submitAttempted() && contactForm().invalid()) {
+              <div
+                aria-live="assertive"
+                class="rounded-xl border border-error/20 bg-error-container px-4 py-3 text-sm text-on-error-container"
+                role="alert"
+              >
+                Controleer de gemarkeerde velden en probeer het opnieuw.
+              </div>
+            }
+
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+              <div class="space-y-2">
+                <label class="font-label-sm text-label-sm text-on-surface-variant" for="firstName">
+                  Voornaam
+                </label>
+                <input
+                  id="firstName"
+                  autocomplete="given-name"
+                  class="focus-ring w-full rounded-xl border border-outline-variant bg-white px-4 py-3 transition-[border-color,box-shadow] duration-200 focus-visible:border-primary"
+                  [class.border-error]="shouldShowError(contactForm.firstName)"
+                  [attr.aria-invalid]="shouldShowError(contactForm.firstName) ? 'true' : 'false'"
+                  [formField]="contactForm.firstName"
+                  placeholder="Bijv. Frank…"
+                  type="text"
+                />
+                <app-form-field-error
+                  [field]="contactForm.firstName"
+                  [submitAttempted]="submitAttempted()"
+                ></app-form-field-error>
+              </div>
+
+              <div class="space-y-2">
+                <label class="font-label-sm text-label-sm text-on-surface-variant" for="lastName">
+                  Achternaam
+                </label>
+                <input
+                  id="lastName"
+                  autocomplete="family-name"
+                  class="focus-ring w-full rounded-xl border border-outline-variant bg-white px-4 py-3 transition-[border-color,box-shadow] duration-200 focus-visible:border-primary"
+                  [class.border-error]="shouldShowError(contactForm.lastName)"
+                  [attr.aria-invalid]="shouldShowError(contactForm.lastName) ? 'true' : 'false'"
+                  [formField]="contactForm.lastName"
+                  placeholder="Bijv. Merema…"
+                  type="text"
+                />
+                <app-form-field-error
+                  [field]="contactForm.lastName"
+                  [submitAttempted]="submitAttempted()"
+                ></app-form-field-error>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-on-surface-variant" for="email">
+                E-mailadres
+              </label>
+              <input
+                id="email"
+                autocomplete="email"
+                inputmode="email"
+                spellcheck="false"
+                class="focus-ring w-full rounded-xl border border-outline-variant bg-white px-4 py-3 transition-[border-color,box-shadow] duration-200 focus-visible:border-primary"
+                [class.border-error]="shouldShowError(contactForm.email)"
+                [attr.aria-invalid]="shouldShowError(contactForm.email) ? 'true' : 'false'"
+                [formField]="contactForm.email"
+                placeholder="naam@bedrijf.nl…"
+                type="email"
+              />
+              <app-form-field-error
+                [field]="contactForm.email"
+                [submitAttempted]="submitAttempted()"
+              ></app-form-field-error>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-on-surface-variant" for="subject">
+                Onderwerp
+              </label>
+              <select
+                id="subject"
+                autocomplete="off"
+                class="focus-ring w-full appearance-none rounded-xl border border-outline-variant bg-white px-4 py-3 transition-[border-color,box-shadow] duration-200 focus-visible:border-primary"
+                [class.border-error]="shouldShowError(contactForm.subject)"
+                [attr.aria-invalid]="shouldShowError(contactForm.subject) ? 'true' : 'false'"
+                [formField]="contactForm.subject"
+              >
+                <option value="">Kies een onderwerp</option>
+                @for (subject of subjects; track subject.value) {
+                  <option [value]="subject.value">{{ subject.label }}</option>
+                }
+              </select>
+              <app-form-field-error
+                [field]="contactForm.subject"
+                [submitAttempted]="submitAttempted()"
+              ></app-form-field-error>
+            </div>
+
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-on-surface-variant" for="message">
+                Bericht
+              </label>
+              <textarea
+                id="message"
+                autocomplete="off"
+                class="focus-ring w-full resize-none rounded-xl border border-outline-variant bg-white px-4 py-3 transition-[border-color,box-shadow] duration-200 focus-visible:border-primary"
+                [class.border-error]="shouldShowError(contactForm.message)"
+                [attr.aria-invalid]="shouldShowError(contactForm.message) ? 'true' : 'false'"
+                [formField]="contactForm.message"
+                placeholder="Beschrijf uw vraag of uitdaging…"
+                rows="6"
+              ></textarea>
+              <div class="flex items-center justify-between gap-4 text-xs text-on-surface-variant">
+                <span>Beschrijf kort uw vraag, context en gewenste ondersteuning.</span>
+                <span>
+                  {{ contactForm.message().value().length }}/
+                  {{ contactForm.message().maxLength?.() ?? 1500 }}
+                </span>
+              </div>
+              <app-form-field-error
+                [field]="contactForm.message"
+                [submitAttempted]="submitAttempted()"
+              ></app-form-field-error>
+            </div>
+
+            <div class="pt-2 md:pt-4">
+              <button
+                class="focus-ring w-full rounded-xl bg-primary px-10 py-4 font-headline-md text-on-primary shadow-[0_20px_40px_-24px_rgba(0,97,147,0.55)] transition-[filter,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70 md:w-auto"
+                [disabled]="contactForm().submitting()"
+                type="submit"
+              >
+                @if (contactForm().submitting()) {
+                  E-mailprogramma wordt geopend…
+                } @else {
+                  Verstuur bericht
+                }
+              </button>
+              <p class="mt-4 text-xs text-on-surface-variant">
+                Door het formulier te verzenden, opent u een vooraf ingevuld e-mailconcept in uw
+                e-mailprogramma.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="relative mt-12 h-[320px] overflow-hidden rounded-[1.6rem] border border-white/80 shadow-[0_28px_70px_-42px_rgba(24,28,32,0.35)] md:mt-stack-lg md:h-[400px]"
+    >
+      <img
+        alt="Gestileerde kaartweergave van de regio rond het hoofdkantoor"
+        class="h-full w-full object-cover"
+        src="/images/contact/map-placeholder.svg"
+        width="1600"
+        height="900"
+        loading="lazy"
+      />
+      <div class="pointer-events-none absolute inset-0 bg-primary/5"></div>
+      <div
+        class="absolute bottom-4 left-4 max-w-xs rounded-xl border border-outline-variant bg-white/94 p-4 shadow-sm sm:bottom-6 sm:left-6"
+      >
+        <p class="font-bold text-on-surface">Hoofdkantoor</p>
+        <p class="text-sm text-on-surface-variant">Hartelstein 7, 6002 VL Weert, Nederland</p>
+      </div>
+    </div>
+  </div>
+</main>

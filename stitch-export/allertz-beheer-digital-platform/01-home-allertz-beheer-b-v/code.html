@@ -1,0 +1,385 @@
+<!doctype html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Allertz Beheer B.V. - Managementadvies &amp; Begeleiding</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'surface-container-high': '#e5e8ee',
+              'on-primary': '#ffffff',
+              'outline-variant': '#bfc7d1',
+              'surface-container-low': '#f1f4f9',
+              'tertiary-container': '#ab6300',
+              'on-secondary': '#ffffff',
+              surface: '#f7f9ff',
+              'surface-container-highest': '#e0e3e8',
+              'surface-container-lowest': '#ffffff',
+              'on-secondary-fixed-variant': '#474747',
+              'on-error-container': '#93000a',
+              'secondary-fixed': '#e4e2e2',
+              'error-container': '#ffdad6',
+              'on-surface-variant': '#3f4850',
+              secondary: '#5e5e5e',
+              'on-surface': '#181c20',
+              'on-tertiary-container': '#fffbff',
+              'secondary-container': '#e4e2e2',
+              'on-error': '#ffffff',
+              'inverse-surface': '#2d3135',
+              'primary-fixed': '#cce5ff',
+              'primary-container': '#007bb8',
+              'inverse-primary': '#91ccff',
+              error: '#ba1a1a',
+              'on-primary-fixed-variant': '#004b72',
+              'on-tertiary': '#ffffff',
+              'primary-fixed-dim': '#91ccff',
+              'on-primary-fixed': '#001e31',
+              'surface-dim': '#d7dae0',
+              'tertiary-fixed-dim': '#ffb873',
+              'surface-variant': '#e0e3e8',
+              'surface-tint': '#006496',
+              'surface-container': '#ebeef4',
+              'surface-bright': '#f7f9ff',
+              'on-secondary-fixed': '#1b1c1c',
+              tertiary: '#884e00',
+              'on-background': '#181c20',
+              'tertiary-fixed': '#ffdcbf',
+              outline: '#707881',
+              'on-tertiary-fixed-variant': '#6a3b00',
+              'inverse-on-surface': '#eef1f7',
+              'secondary-fixed-dim': '#c8c6c6',
+              primary: '#006193',
+              'on-secondary-container': '#646464',
+              'on-primary-container': '#fcfcff',
+              'on-tertiary-fixed': '#2d1600',
+              background: '#f7f9ff',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              'stack-sm': '8px',
+              'stack-lg': '48px',
+              unit: '8px',
+              'margin-desktop': '40px',
+              'container-max': '1200px',
+              gutter: '24px',
+              'margin-mobile': '16px',
+              'stack-md': '24px',
+            },
+            fontFamily: {
+              'headline-md': ['Manrope'],
+              'label-sm': ['Inter'],
+              'headline-xl': ['Manrope'],
+              'body-lg': ['Inter'],
+              'headline-lg': ['Manrope'],
+              'body-md': ['Inter'],
+            },
+            fontSize: {
+              'headline-md': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
+              'label-sm': [
+                '14px',
+                { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '500' },
+              ],
+              'headline-xl': [
+                '48px',
+                { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' },
+              ],
+              'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+              'headline-lg': [
+                '32px',
+                { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' },
+              ],
+              'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background font-body-md">
+    <!-- Top Navigation Bar -->
+    <nav
+      class="fixed top-0 w-full z-50 border-b border-surface-variant bg-surface/90 backdrop-blur-md"
+    >
+      <div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-desktop h-20">
+        <div class="flex items-center gap-4">
+          <img
+            alt="Allertz Beheer B.V. Logo"
+            class="w-10 h-10 object-contain"
+            src="https://lh3.googleusercontent.com/aida/ADBb0ugNTev0nLsDyTeiU0vSnixzNZDENYkameHJ2GImYtpmbPNRF65_zz56NHtgguynEARBMnT0Q3K8oSeQuAKmgc1Mqk7Le0KtPbvH8TnaTizzoGUgXSRd-1OgbSH3ZxT8ZkKTRz3IcMgK3-sT7WgTvtoGetCKck9g1SCEGq1HQ9t1E9GUPucvMxhgqbnxKyZTE8p0cmDJ2k26bq2XkOypGH-daxeAZl0GBIQP0G4IMilrTiLa0_Qg9vl7E5NVuje6mWXhrOpw5Vdg"
+          />
+          <span class="text-xl font-extrabold tracking-tighter text-primary"
+            >Allertz Beheer B.V.</span
+          >
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Services</a>
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-medium"
+            href="#"
+            >About Us</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-medium"
+            href="#"
+            >Contact</a
+          >
+        </div>
+        <button
+          class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-sm hover:brightness-110 active:scale-95 transition-all"
+        >
+          Get in Touch
+        </button>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-stack-lg max-w-[1200px] mx-auto px-8 mb-20">
+      <div class="grid grid-cols-1 gap-16 items-center lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <span
+            class="inline-block px-3 py-1 mb-8 rounded-full bg-primary-fixed/50 text-on-primary-fixed-variant font-label-sm uppercase tracking-widest text-[10px]"
+            >Strategisch Management &amp; Advies</span
+          >
+          <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">
+            Begeleiding bij complexe <span class="text-primary">veranderingsprocessen</span>.
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+            Allertz Beheer B.V. biedt de intellectuele structuur en professionele ervaring die nodig
+            is om organisaties door cruciale transformaties te leiden.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button
+              class="bg-primary text-on-primary px-10 py-4 rounded-lg font-manrope font-bold hover:brightness-110 transition-all shadow-sm"
+            >
+              Onze Diensten
+            </button>
+            <button
+              class="border border-primary text-primary px-10 py-4 rounded-lg font-manrope font-bold hover:bg-primary-fixed/30 transition-colors"
+            >
+              Lees Meer Over Ons
+            </button>
+          </div>
+        </div>
+        <div class="relative lg:col-span-5">
+          <div
+            class="aspect-square bg-surface-container-high rounded-xl overflow-hidden shadow-sm relative z-10"
+          >
+            <img
+              alt="Allertz Beheer B.V. Logo"
+              class="w-full h-full object-contain p-12 bg-white"
+              src="https://lh3.googleusercontent.com/aida/ADBb0ugNTev0nLsDyTeiU0vSnixzNZDENYkameHJ2GImYtpmbPNRF65_zz56NHtgguynEARBMnT0Q3K8oSeQuAKmgc1Mqk7Le0KtPbvH8TnaTizzoGUgXSRd-1OgbSH3ZxT8ZkKTRz3IcMgK3-sT7WgTvtoGetCKck9g1SCEGq1HQ9t1E9GUPucvMxhgqbnxKyZTE8p0cmDJ2k26bq2XkOypGH-daxeAZl0GBIQP0G4IMilrTiLa0_Qg9vl7E5NVuje6mWXhrOpw5Vdg"
+            />
+          </div>
+          <!-- Decorative Element -->
+          <div
+            class="absolute -top-6 -right-6 w-full h-full bg-primary-fixed/20 rounded-xl -z-0"
+          ></div>
+          <div
+            class="absolute -bottom-6 -left-6 bg-white p-6 border border-outline-variant shadow-lg hidden md:block z-20"
+          >
+            <div class="flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary text-4xl">handshake</span>
+              <div>
+                <p class="font-headline-md text-primary">20+</p>
+                <p class="font-label-sm text-secondary">Jaar Ervaring</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Core Services Section -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="mb-16">
+          <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Onze Expertise</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Wij combineren analytische diepgang met praktische executiekracht voor resultaatgericht
+            management.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Managementadvies -->
+          <div
+            class="bg-surface p-8 rounded-xl border border-outline-variant hover:border-primary transition-colors group"
+          >
+            <div
+              class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary transition-colors"
+            >
+              <span class="material-symbols-outlined text-primary group-hover:text-on-primary"
+                >strategy</span
+              >
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4">Managementadvies</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">
+              Strategische ondersteuning bij organisatievraagstukken, procesoptimalisatie en
+              langetermijnvisie ontwikkeling.
+            </p>
+            <a
+              class="inline-flex items-center text-primary font-label-sm hover:gap-2 transition-all"
+              href="#"
+            >
+              Meer details <span class="material-symbols-outlined ml-1">arrow_forward</span>
+            </a>
+          </div>
+          <!-- Medezeggenschap -->
+          <div
+            class="bg-surface p-8 rounded-xl border border-outline-variant hover:border-primary transition-colors group"
+          >
+            <div
+              class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary transition-colors"
+            >
+              <span class="material-symbols-outlined text-primary group-hover:text-on-primary"
+                >groups</span
+              >
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4">Medezeggenschap</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">
+              Deskundige begeleiding van ondernemingsraden en directies in een constructieve dialoog
+              voor gezamenlijk succes.
+            </p>
+            <a
+              class="inline-flex items-center text-primary font-label-sm hover:gap-2 transition-all"
+              href="#"
+            >
+              Meer details <span class="material-symbols-outlined ml-1">arrow_forward</span>
+            </a>
+          </div>
+          <!-- Toezicht -->
+          <div
+            class="bg-surface p-8 rounded-xl border border-outline-variant hover:border-primary transition-colors group"
+          >
+            <div
+              class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary transition-colors"
+            >
+              <span class="material-symbols-outlined text-primary group-hover:text-on-primary"
+                >visibility</span
+              >
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-4">Toezicht</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">
+              Professionele invulling van rollen binnen raden van toezicht en commissarissen, met
+              focus op goed bestuur.
+            </p>
+            <a
+              class="inline-flex items-center text-primary font-label-sm hover:gap-2 transition-all"
+              href="#"
+            >
+              Meer details <span class="material-symbols-outlined ml-1">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Teaser (Bento Layout) -->
+    <section class="py-24">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-inverse-surface text-inverse-on-surface p-12 rounded-2xl flex flex-col justify-between"
+          >
+            <div>
+              <h2 class="font-headline-lg text-headline-lg mb-6">Over Allertz Beheer B.V.</h2>
+              <p class="font-body-lg text-body-lg mb-8 opacity-90">
+                Met decennia aan ervaring in zowel de publieke als private sector, brengen wij rust
+                in complexe situaties en structuur in verandering. Onze aanpak is gebaseerd op
+                integriteit en resultaat.
+              </p>
+            </div>
+            <button
+              class="w-fit bg-primary text-on-primary px-8 py-3 rounded-lg font-label-sm hover:bg-primary-container transition-colors"
+            >
+              Ontmoet ons team
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-8">
+            <div class="bg-white border border-outline-variant p-8 rounded-2xl text-center">
+              <div class="text-headline-xl font-headline-xl text-primary mb-2">25+</div>
+              <div class="font-label-sm text-on-surface-variant">Jaren Ervaring</div>
+            </div>
+            <div class="bg-white border border-outline-variant p-8 rounded-2xl text-center">
+              <div class="text-headline-xl font-headline-xl text-primary mb-2">150+</div>
+              <div class="font-label-sm text-on-surface-variant">Projecten Voltooid</div>
+            </div>
+            <div class="col-span-2 bg-primary-fixed p-8 rounded-2xl relative overflow-hidden">
+              <div class="relative z-10">
+                <h4 class="font-headline-md text-on-primary-fixed mb-2">Direct Contact?</h4>
+                <p class="font-body-md text-on-primary-fixed-variant mb-4">
+                  Wij staan klaar voor een vrijblijvend gesprek over uw uitdagingen.
+                </p>
+                <span class="material-symbols-outlined text-4xl text-primary">mail</span>
+              </div>
+              <div class="absolute -right-4 -bottom-4 opacity-10">
+                <span class="material-symbols-outlined text-[160px]">contact_support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="w-full border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950"
+    >
+      <div
+        class="max-w-[1200px] mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <span class="font-bold text-gray-900 dark:text-white">Allertz Beheer B.V.</span>
+          <p class="font-manrope text-xs text-gray-500 dark:text-gray-400">
+            © 2026 Allertz Beheer B.V. All rights reserved.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="font-manrope text-xs text-gray-500 hover:text-sky-700 dark:hover:text-sky-400 transition-colors"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-manrope text-xs text-gray-500 hover:text-sky-700 dark:hover:text-sky-400 transition-colors"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="font-manrope text-xs text-gray-500 hover:text-sky-700 dark:hover:text-sky-400 transition-colors"
+            href="#"
+            >LinkedIn</a
+          >
+          <a
+            class="font-manrope text-xs text-gray-500 hover:text-sky-700 dark:hover:text-sky-400 transition-colors"
+            href="#"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

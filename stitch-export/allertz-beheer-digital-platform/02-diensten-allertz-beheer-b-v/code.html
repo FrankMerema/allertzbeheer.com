@@ -1,0 +1,508 @@
+<!doctype html>
+
+<html class="light" lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Diensten | Allertz Beheer B.V.</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'surface-container-high': '#e5e8ee',
+              'on-primary': '#ffffff',
+              'outline-variant': '#bfc7d1',
+              'surface-container-low': '#f1f4f9',
+              'tertiary-container': '#ab6300',
+              'on-secondary': '#ffffff',
+              surface: '#f7f9ff',
+              'surface-container-highest': '#e0e3e8',
+              'surface-container-lowest': '#ffffff',
+              'on-secondary-fixed-variant': '#474747',
+              'on-error-container': '#93000a',
+              'secondary-fixed': '#e4e2e2',
+              'error-container': '#ffdad6',
+              'on-surface-variant': '#3f4850',
+              secondary: '#5e5e5e',
+              'on-surface': '#181c20',
+              'on-tertiary-container': '#fffbff',
+              'secondary-container': '#e4e2e2',
+              'on-error': '#ffffff',
+              'inverse-surface': '#2d3135',
+              'primary-fixed': '#cce5ff',
+              'primary-container': '#007bb8',
+              'inverse-primary': '#91ccff',
+              error: '#ba1a1a',
+              'on-primary-fixed-variant': '#004b72',
+              'on-tertiary': '#ffffff',
+              'primary-fixed-dim': '#91ccff',
+              'on-primary-fixed': '#001e31',
+              'surface-dim': '#d7dae0',
+              'tertiary-fixed-dim': '#ffb873',
+              'surface-variant': '#e0e3e8',
+              'surface-tint': '#006496',
+              'surface-container': '#ebeef4',
+              'surface-bright': '#f7f9ff',
+              'on-secondary-fixed': '#1b1c1c',
+              tertiary: '#884e00',
+              'on-background': '#181c20',
+              'tertiary-fixed': '#ffdcbf',
+              outline: '#707881',
+              'on-tertiary-fixed-variant': '#6a3b00',
+              'inverse-on-surface': '#eef1f7',
+              'secondary-fixed-dim': '#c8c6c6',
+              primary: '#006193',
+              'on-secondary-container': '#646464',
+              'on-primary-container': '#fcfcff',
+              'on-tertiary-fixed': '#2d1600',
+              background: '#f7f9ff',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              'stack-sm': '8px',
+              'stack-lg': '48px',
+              unit: '8px',
+              'margin-desktop': '40px',
+              'container-max': '1200px',
+              gutter: '24px',
+              'margin-mobile': '16px',
+              'stack-md': '24px',
+            },
+            fontFamily: {
+              'headline-md': ['Manrope'],
+              'label-sm': ['Inter'],
+              'headline-xl': ['Manrope'],
+              'body-lg': ['Inter'],
+              'headline-lg': ['Manrope'],
+              'body-md': ['Inter'],
+            },
+            fontSize: {
+              'headline-md': ['24px', { lineHeight: '1.4', fontWeight: '600' }],
+              'label-sm': [
+                '14px',
+                { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '500' },
+              ],
+              'headline-xl': [
+                '48px',
+                { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' },
+              ],
+              'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+              'headline-lg': [
+                '32px',
+                { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' },
+              ],
+              'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface font-body-md">
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 border-b border-surface-variant bg-surface/90 backdrop-blur-md"
+    >
+      <div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-desktop h-20">
+        <div class="flex items-center gap-4">
+          <img
+            alt="Allertz Beheer B.V. Logo"
+            class="w-10 h-10 object-contain"
+            src="https://lh3.googleusercontent.com/aida/ADBb0ugNTev0nLsDyTeiU0vSnixzNZDENYkameHJ2GImYtpmbPNRF65_zz56NHtgguynEARBMnT0Q3K8oSeQuAKmgc1Mqk7Le0KtPbvH8TnaTizzoGUgXSRd-1OgbSH3ZxT8ZkKTRz3IcMgK3-sT7WgTvtoGetCKck9g1SCEGq1HQ9t1E9GUPucvMxhgqbnxKyZTE8p0cmDJ2k26bq2XkOypGH-daxeAZl0GBIQP0G4IMilrTiLa0_Qg9vl7E5NVuje6mWXhrOpw5Vdg"
+          />
+          <span class="text-xl font-extrabold tracking-tighter text-primary"
+            >Allertz Beheer B.V.</span
+          >
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Services</a>
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-medium"
+            href="#"
+            >About Us</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-medium"
+            href="#"
+            >Contact</a
+          >
+        </div>
+        <button
+          class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-sm hover:brightness-110 active:scale-95 transition-all"
+        >
+          Get in Touch
+        </button>
+      </div>
+    </nav>
+    <main class="pt-32 pb-stack-lg">
+      <!-- Hero Section -->
+      <section class="max-w-[1200px] mx-auto px-8 mb-20">
+        <div class="grid grid-cols-1 gap-16 items-center lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <span
+              class="inline-block px-3 py-1 mb-8 rounded-full bg-primary-fixed/50 text-on-primary-fixed-variant font-label-sm uppercase tracking-widest text-[10px]"
+              >Onze Expertise</span
+            >
+            <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">
+              Strategische Consultancy &amp;
+              <span class="text-primary">Bestuurlijke Facilitering.</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+              Allertz Beheer B.V. biedt hoogwaardige ondersteuning bij complexe
+              veranderingsprocessen, medezeggenschap en toezicht. Wij slaan de brug tussen zakelijke
+              ambities en maatschappelijke impact.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="bg-primary text-on-primary px-10 py-4 rounded-lg font-manrope font-bold hover:brightness-110 transition-all shadow-sm"
+              >
+                Plan een Gesprek
+              </button>
+              <button
+                class="border border-primary text-primary px-10 py-4 rounded-lg font-manrope font-bold hover:bg-primary-fixed/30 transition-colors"
+              >
+                Bekijk Diensten
+              </button>
+            </div>
+          </div>
+          <div class="relative lg:col-span-5">
+            <div
+              class="aspect-square bg-surface-container-high rounded-xl overflow-hidden shadow-sm relative z-10"
+            >
+              <img
+                alt="Allertz Beheer B.V. Logo"
+                class="w-full h-full object-contain p-12 bg-white"
+                src="https://lh3.googleusercontent.com/aida/ADBb0ugNTev0nLsDyTeiU0vSnixzNZDENYkameHJ2GImYtpmbPNRF65_zz56NHtgguynEARBMnT0Q3K8oSeQuAKmgc1Mqk7Le0KtPbvH8TnaTizzoGUgXSRd-1OgbSH3ZxT8ZkKTRz3IcMgK3-sT7WgTvtoGetCKck9g1SCEGq1HQ9t1E9GUPucvMxhgqbnxKyZTE8p0cmDJ2k26bq2XkOypGH-daxeAZl0GBIQP0G4IMilrTiLa0_Qg9vl7E5NVuje6mWXhrOpw5Vdg"
+              />
+            </div>
+            <!-- Decorative Light Blue Element -->
+            <div
+              class="absolute -top-6 -right-6 w-full h-full bg-primary-fixed/20 rounded-xl -z-0"
+            ></div>
+            <div
+              class="absolute -bottom-6 -left-6 bg-white p-6 border border-outline-variant shadow-lg hidden md:block z-20"
+            >
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary text-4xl" data-icon="handshake"
+                  >handshake</span
+                >
+                <div>
+                  <p class="font-headline-md text-primary">20+</p>
+                  <p class="font-label-sm text-secondary">Jaar Ervaring</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section: Bento Grid -->
+      <section class="max-w-[1200px] mx-auto px-8 space-y-stack-md">
+        <div class="text-center mb-16">
+          <h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Kerngebieden van Dienstverlening
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Change Management Card -->
+          <div
+            class="md:col-span-2 group bg-white border border-outline-variant p-10 rounded-xl transition-all duration-300 hover:shadow-md hover:border-primary/30"
+          >
+            <div class="flex flex-col h-full justify-between">
+              <div>
+                <span
+                  class="material-symbols-outlined text-primary mb-6 text-4xl"
+                  data-icon="dynamic_form"
+                  >dynamic_form</span
+                >
+                <h3
+                  class="font-headline-md text-headline-md mb-4 group-hover:text-primary transition-colors"
+                >
+                  Verandermanagement
+                </h3>
+                <p class="font-body-md text-on-surface-variant leading-relaxed">
+                  Begeleiding van organisaties door complexe transformaties. Wij focussen op de
+                  menselijke kant van verandering, waarbij we structurele aanpassingen koppelen aan
+                  cultuurverandering en draagvlak binnen de profit en non-profit sector.
+                </p>
+              </div>
+              <ul class="mt-8 grid grid-cols-2 gap-4 border-t border-surface-container pt-8">
+                <li class="flex items-center gap-2 text-sm text-secondary">
+                  <span
+                    class="material-symbols-outlined text-primary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Strategische Analyse
+                </li>
+                <li class="flex items-center gap-2 text-sm text-secondary">
+                  <span
+                    class="material-symbols-outlined text-primary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Cultuurdiagnose
+                </li>
+                <li class="flex items-center gap-2 text-sm text-secondary">
+                  <span
+                    class="material-symbols-outlined text-primary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Implementatiebegeleiding
+                </li>
+                <li class="flex items-center gap-2 text-sm text-secondary">
+                  <span
+                    class="material-symbols-outlined text-primary text-sm"
+                    data-icon="check_circle"
+                    >check_circle</span
+                  >
+                  Coaching van Leiderschap
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Supervisory Functions -->
+          <div
+            class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:shadow-md"
+          >
+            <span
+              class="material-symbols-outlined text-primary mb-6 text-4xl"
+              data-icon="visibility"
+              >visibility</span
+            >
+            <h3
+              class="font-headline-md text-headline-md mb-4 group-hover:text-primary transition-colors"
+            >
+              Toezicht &amp; Bestuur
+            </h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed">
+              Onafhankelijke invulling van toezichthoudende rollen (RvC/RvT). Wij waarborgen
+              corporate governance en bieden een kritisch, maar constructief klankbord voor besturen
+              in dynamische omgevingen.
+            </p>
+            <div
+              class="mt-12 bg-white/50 p-4 rounded border border-outline-variant/30 italic text-sm text-secondary"
+            >
+              "Focus op integer bestuur en lange-termijn waardecreatie."
+            </div>
+          </div>
+          <!-- Employee Participation -->
+          <div
+            class="group bg-white border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:shadow-md hover:border-primary/30"
+          >
+            <span class="material-symbols-outlined text-primary mb-6 text-4xl" data-icon="groups"
+              >groups</span
+            >
+            <h3
+              class="font-headline-md text-headline-md mb-4 group-hover:text-primary transition-colors"
+            >
+              Medezeggenschap
+            </h3>
+            <p class="font-body-md text-on-surface-variant leading-relaxed">
+              Expertise in het faciliteren van de relatie tussen directie en Ondernemingsraad (OR).
+              Wij ondersteunen bij de inrichting van participatieprocessen die werkelijk waarde
+              toevoegen aan de besluitvorming.
+            </p>
+          </div>
+          <!-- Facilitation Card -->
+          <div
+            class="md:col-span-2 group bg-inverse-surface text-white p-8 rounded-xl transition-all duration-300 overflow-hidden relative"
+          >
+            <div class="relative z-10">
+              <span
+                class="material-symbols-outlined text-primary-fixed mb-6 text-4xl"
+                data-icon="forum"
+                >forum</span
+              >
+              <h3 class="font-headline-md text-headline-md mb-4 text-white">
+                Project Facilitering
+              </h3>
+              <p class="font-body-md text-surface-variant leading-relaxed max-w-xl">
+                Het leiden van strategische sessies, heidagen en complexe overlegstructuren. Allertz
+                Beheer fungeert als de neutrale procesbegeleider die resultaten boekt zonder de
+                inhoudelijke regie van de opdrachtgever over te nemen.
+              </p>
+              <div class="mt-8 flex gap-4">
+                <span class="px-4 py-2 bg-white/10 rounded-full text-xs font-medium tracking-wide"
+                  >Profit Sector</span
+                >
+                <span class="px-4 py-2 bg-white/10 rounded-full text-xs font-medium tracking-wide"
+                  >Non-Profit</span
+                >
+                <span class="px-4 py-2 bg-white/10 rounded-full text-xs font-medium tracking-wide"
+                  >Overheid</span
+                >
+              </div>
+            </div>
+            <div class="absolute -right-10 -bottom-10 opacity-5">
+              <span class="material-symbols-outlined text-[200px]" data-icon="settings_suggest"
+                >settings_suggest</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Sectors Section -->
+      <section class="max-w-[1200px] mx-auto px-8 mt-24 py-16 bg-surface-container rounded-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg mb-6">
+              Een Dubbel Focus: Profit &amp; Non-Profit
+            </h2>
+            <p class="font-body-md text-on-surface-variant mb-8 leading-relaxed">
+              Wij begrijpen de unieke dynamiek van beide werelden. Of het nu gaat om het
+              optimaliseren van rendement in het bedrijfsleven of het realiseren van
+              maatschappelijke doelstellingen in de zorg, het onderwijs of woningbouwcorporaties;
+              onze methodieken zijn universeel maar de toepassing is altijd maatwerk.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded bg-white flex items-center justify-center shrink-0 border border-outline-variant"
+                >
+                  <span class="material-symbols-outlined text-primary" data-icon="business"
+                    >business</span
+                  >
+                </div>
+                <div>
+                  <p class="font-bold text-on-surface">Corporate Reliability</p>
+                  <p class="text-sm text-secondary">
+                    Gestructureerde processen en heldere KPI's voor zakelijk succes.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded bg-white flex items-center justify-center shrink-0 border border-outline-variant"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="volunteer_activism"
+                    >volunteer_activism</span
+                  >
+                </div>
+                <div>
+                  <p class="font-bold text-on-surface">Intellectual Rigor</p>
+                  <p class="text-sm text-secondary">
+                    Diepgaande analyse van complexe maatschappelijke vraagstukken.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="bg-white p-6 border border-outline-variant rounded-lg text-center flex flex-col justify-center"
+            >
+              <p class="font-headline-md text-primary">Profit</p>
+              <p class="text-xs uppercase tracking-widest text-secondary mt-2">
+                Efficiëntie &amp; Groei
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 border border-outline-variant rounded-lg text-center flex flex-col justify-center"
+            >
+              <p class="font-headline-md text-primary">Zorg</p>
+              <p class="text-xs uppercase tracking-widest text-secondary mt-2">
+                Kwaliteit &amp; Continuïteit
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 border border-outline-variant rounded-lg text-center flex flex-col justify-center"
+            >
+              <p class="font-headline-md text-primary">Wonen</p>
+              <p class="text-xs uppercase tracking-widest text-secondary mt-2">
+                Maatschappelijke Rol
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 border border-outline-variant rounded-lg text-center flex flex-col justify-center"
+            >
+              <p class="font-headline-md text-primary">Overheid</p>
+              <p class="text-xs uppercase tracking-widest text-secondary mt-2">Transparantie</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section class="max-w-[1200px] mx-auto px-8 mt-24 text-center">
+        <div class="bg-white border border-outline-variant py-16 px-8 rounded-xl shadow-sm">
+          <h2 class="font-headline-lg text-headline-lg mb-4">Klaar voor de volgende stap?</h2>
+          <p class="font-body-md text-on-surface-variant mb-10 max-w-xl mx-auto">
+            Neem vandaag nog contact op voor een vrijblijvende kennismaking en ontdek hoe Allertz
+            Beheer B.V. uw organisatie kan versterken.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="bg-primary text-on-primary px-10 py-4 rounded-lg font-manrope font-bold hover:brightness-110 transition-all shadow-sm"
+            >
+              Plan een Gesprek
+            </button>
+            <button
+              class="border border-primary text-primary px-10 py-4 rounded-lg font-manrope font-bold hover:bg-primary-fixed/30 transition-colors"
+            >
+              Download Brochure
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full border-t border-surface-variant bg-surface-container-low">
+      <div
+        class="max-w-[1200px] mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <span class="font-bold text-on-surface">Allertz Beheer B.V.</span>
+          <p class="font-manrope text-xs text-on-surface-variant">
+            © 2026 Allertz Beheer B.V. All rights reserved.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="font-manrope text-xs text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-manrope text-xs text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="font-manrope text-xs text-on-surface-variant hover:text-primary transition-colors"
+            href="#"
+            >LinkedIn</a
+          >
+          <a class="text-primary font-manrope text-xs font-semibold" href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,11 +1,12 @@
 # allertzbeheer.com
 
-Standalone Angular application for `allertzbeheer.com`, built with pnpm and deployed to GitHub Pages.
+Standalone Angular application for `allertzbeheer.com`, built with pnpm and deployed to GitHub Pages. The current frontend is a Stitch export migration to Angular route components with shared layout and local Tailwind configuration.
 
 ## Stack
 
 - Angular 21 standalone application
-- Plain CSS styling
+- Angular Router with standalone page components
+- Tailwind CSS 3 with local design tokens
 - pnpm for package management
 - ESLint + Prettier for code quality
 - Husky + lint-staged for local pre-commit enforcement
