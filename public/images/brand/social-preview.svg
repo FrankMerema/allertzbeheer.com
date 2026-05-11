@@ -7,7 +7,7 @@
     <rect x="92" y="118" width="170" height="170" rx="36" fill="white"/>
     <rect x="92.5" y="118.5" width="169" height="169" rx="35.5" stroke="#E1E8EF"/>
   </g>
-  <image href="/images/brand/logo.png" x="120" y="146" width="114" height="114" preserveAspectRatio="xMidYMid meet"/>
+  <image href="logo.png" x="120" y="146" width="114" height="114" preserveAspectRatio="xMidYMid meet"/>
   <text x="306" y="192" fill="#004B72" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">ALLERTZ BEHEER B.V.</text>
   <text x="92" y="376" fill="#181C20" font-family="Manrope, Arial, sans-serif" font-size="66" font-weight="800">Strategisch Advies met</text>
   <text x="92" y="448" fill="#006193" font-family="Manrope, Arial, sans-serif" font-size="66" font-weight="800">bestuurlijke diepgang.</text>

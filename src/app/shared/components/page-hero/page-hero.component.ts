@@ -129,7 +129,7 @@ export class PageHeroComponent {
   readonly secondaryLabel = input<string | null>(null);
   readonly secondaryRoute = input<string | null>(null);
   readonly secondaryHref = input<string | null>(null);
-  readonly imageSrc = input('/images/brand/logo.png');
+  readonly imageSrc = input('images/brand/logo.png');
   readonly imageAlt = input('Allertz Beheer B.V. logo');
   readonly statValue = input('20+');
   readonly statLabel = input('Jaren ervaring');

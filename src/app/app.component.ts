@@ -9,10 +9,9 @@ import { SiteFooterComponent } from './core/layout/site-footer/site-footer.compo
 import { SiteHeaderComponent } from './core/layout/site-header/site-header.component';
 
 const SITE_NAME = 'Allertz Beheer B.V.';
-const SITE_URL = 'https://allertzbeheer.com';
 const DEFAULT_DESCRIPTION =
   'Allertz Beheer B.V. begeleidt organisaties bij complexe veranderingsprocessen, medezeggenschap, toezicht en strategisch managementadvies.';
-const SOCIAL_IMAGE_PATH = '/images/brand/social-preview.svg';
+const SOCIAL_IMAGE_PATH = 'images/brand/social-preview.svg';
 
 @Component({
   selector: 'app-root',
@@ -42,8 +41,9 @@ export class AppComponent {
     const routeTitle = activeRoute.snapshot.title?.toString() ?? SITE_NAME;
     const description = activeRoute.snapshot.data['description'] ?? DEFAULT_DESCRIPTION;
     const canonicalPath = activeRoute.snapshot.data['canonicalPath'] ?? this.router.url;
-    const canonicalUrl = new URL(canonicalPath, SITE_URL).toString();
-    const socialImageUrl = new URL(SOCIAL_IMAGE_PATH, SITE_URL).toString();
+    const siteBaseUrl = this.document.baseURI;
+    const canonicalUrl = new URL(this.toAppRelativePath(canonicalPath), siteBaseUrl).toString();
+    const socialImageUrl = new URL(SOCIAL_IMAGE_PATH, siteBaseUrl).toString();
 
     this.title.setTitle(routeTitle);
     this.updateCanonicalLink(canonicalUrl);
@@ -73,6 +73,10 @@ export class AppComponent {
     }
 
     return activeRoute;
+  }
+
+  private toAppRelativePath(path: string): string {
+    return path === '/' ? '' : path.replace(/^\/+/, '');
   }
 
   private updateCanonicalLink(url: string): void {
