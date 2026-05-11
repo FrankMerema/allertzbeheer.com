@@ -1,13 +1,13 @@
 <main class="pb-stack-lg" id="main-content">
   <app-page-hero
-    eyebrow="Strategisch advies"
-    titlePrefix="Veranderingsprocessen &"
-    titleHighlight="medezeggenschap"
-    titleSuffix="."
-    description="Wij begeleiden directies en besturen bij complexe transformaties. Onze expertise ligt in het overbruggen van de kloof tussen strategische noodzaak en effectieve medezeggenschap."
-    primaryLabel="Vraag advies aan"
+    [eyebrow]="'expertise.hero.eyebrow' | t"
+    [titlePrefix]="'expertise.hero.titlePrefix' | t"
+    [titleHighlight]="'expertise.hero.titleHighlight' | t"
+    [titleSuffix]="'expertise.hero.titleSuffix' | t"
+    [description]="'expertise.hero.description' | t"
+    [primaryLabel]="'expertise.hero.primaryLabel' | t"
     primaryRoute="/contact"
-    secondaryLabel="Onze aanpak"
+    [secondaryLabel]="'expertise.hero.secondaryLabel' | t"
     secondaryHref="#aanpak"
   ></app-page-hero>
 
@@ -21,13 +21,10 @@
             account_tree
           </span>
           <h2 class="text-balance mb-4 font-headline-lg text-on-surface">
-            Navigeren door complexiteit
+            {{ 'expertise.intro.title' | t }}
           </h2>
           <p class="text-pretty font-body-md text-on-surface-variant">
-            Organisatieveranderingen zijn zelden lineair. Wij bieden de structuur en analytische
-            scherpte die nodig zijn om weerstand om te zetten in participatie. Of het nu gaat om
-            fusies, reorganisaties of cultuurveranderingen: wij bewaken de balans tussen
-            managementbelangen en wettelijke medezeggenschap.
+            {{ 'expertise.intro.description' | t }}
           </p>
         </div>
         <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -35,13 +32,13 @@
             <span aria-hidden="true" class="material-symbols-outlined text-primary"
               >check_circle</span
             >
-            <span class="font-label-sm">Strategische heroriëntatie</span>
+            <span class="font-label-sm">{{ 'expertise.intro.item1' | t }}</span>
           </div>
           <div class="flex items-start gap-3 rounded-xl bg-surface-container-low px-4 py-3">
             <span aria-hidden="true" class="material-symbols-outlined text-primary"
               >check_circle</span
             >
-            <span class="font-label-sm">Fusies &amp; overnames</span>
+            <span class="font-label-sm">{{ 'expertise.intro.item2' | t }}</span>
           </div>
         </div>
       </article>
@@ -49,16 +46,13 @@
       <article
         class="flex flex-col justify-center rounded-[1.5rem] bg-[linear-gradient(145deg,#007bb8,#006193)] p-8 text-on-primary-container shadow-[0_30px_80px_-42px_rgba(0,97,147,0.55)] md:p-10"
       >
-        <h3 class="text-balance mb-6 font-headline-md">Medezeggenschap als kracht</h3>
-        <p class="mb-8 font-body-md opacity-90">
-          Wij adviseren over de inrichting van OR-trajecten die niet vertragen, maar juist waarde
-          toevoegen aan het besluitvormingsproces.
-        </p>
+        <h3 class="text-balance mb-6 font-headline-md">{{ 'expertise.highlight.title' | t }}</h3>
+        <p class="mb-8 font-body-md opacity-90">{{ 'expertise.highlight.description' | t }}</p>
         <a
           routerLink="/diensten"
           class="focus-ring inline-flex items-center gap-2 rounded-sm font-label-sm font-bold uppercase tracking-wider text-white transition-colors hover:text-primary-fixed"
         >
-          Lees meer
+          {{ 'common.readMore' | t }}
           <span aria-hidden="true" class="material-symbols-outlined">arrow_forward</span>
         </a>
       </article>
@@ -68,7 +62,7 @@
   <section class="bg-surface py-16 scroll-mt-32 md:py-24" id="aanpak">
     <div class="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-8">
       <app-section-heading
-        title="Onze gestructureerde aanpak"
+        [title]="'expertise.process.title' | t"
         [centered]="true"
         [showAccent]="true"
       ></app-section-heading>
@@ -80,19 +74,20 @@
           <div class="font-headline-xl text-5xl font-extrabold text-surface-container-highest">
             01
           </div>
-          <h3 class="mt-4 font-headline-md text-primary">Analyse &amp; context</h3>
+          <h3 class="mt-4 font-headline-md text-primary">
+            {{ 'expertise.process.step1Title' | t }}
+          </h3>
           <p class="mt-3 font-body-md text-on-surface-variant">
-            Grondige doorlichting van de organisatorische dynamiek en de formele
-            medezeggenschapsstructuur.
+            {{ 'expertise.process.step1Description' | t }}
           </p>
           <ul class="space-y-2 pt-5">
             <li class="flex items-center gap-2 text-on-surface-variant">
               <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              Stakeholderanalyse
+              {{ 'expertise.process.step1Item1' | t }}
             </li>
             <li class="flex items-center gap-2 text-on-surface-variant">
               <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              Risico-inventarisatie
+              {{ 'expertise.process.step1Item2' | t }}
             </li>
           </ul>
         </article>
@@ -103,19 +98,20 @@
           <div class="font-headline-xl text-5xl font-extrabold text-surface-container-highest">
             02
           </div>
-          <h3 class="mt-4 font-headline-md text-primary">Procesontwerp</h3>
+          <h3 class="mt-4 font-headline-md text-primary">
+            {{ 'expertise.process.step2Title' | t }}
+          </h3>
           <p class="mt-3 font-body-md text-on-surface-variant">
-            Ontwikkeling van een transparant verandertraject inclusief tijdslijnen voor
-            adviesaanvragen.
+            {{ 'expertise.process.step2Description' | t }}
           </p>
           <ul class="space-y-2 pt-5">
             <li class="flex items-center gap-2 text-on-surface-variant">
               <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              WOR-naleving
+              {{ 'expertise.process.step2Item1' | t }}
             </li>
             <li class="flex items-center gap-2 text-on-surface-variant">
               <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              Communicatieplan
+              {{ 'expertise.process.step2Item2' | t }}
             </li>
           </ul>
         </article>
@@ -126,18 +122,20 @@
           <div class="font-headline-xl text-5xl font-extrabold text-surface-container-highest">
             03
           </div>
-          <h3 class="mt-4 font-headline-md text-primary">Implementatie</h3>
+          <h3 class="mt-4 font-headline-md text-primary">
+            {{ 'expertise.process.step3Title' | t }}
+          </h3>
           <p class="mt-3 font-body-md text-on-surface-variant">
-            Actieve begeleiding tijdens overlegvergaderingen en bij de uitrol van nieuwe structuren.
+            {{ 'expertise.process.step3Description' | t }}
           </p>
           <ul class="space-y-2 pt-5">
             <li class="flex items-center gap-2 text-on-surface-variant">
               <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              Begeleiding van de dialoog
+              {{ 'expertise.process.step3Item1' | t }}
             </li>
             <li class="flex items-center gap-2 text-on-surface-variant">
               <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              Resultaatbewaking
+              {{ 'expertise.process.step3Item2' | t }}
             </li>
           </ul>
         </article>
@@ -146,10 +144,10 @@
   </section>
 
   <app-cta-panel
-    title="Klaar voor de volgende stap in uw organisatie?"
-    description="Onze consultants staan klaar om u te ondersteunen bij het realiseren van duurzame verandering met draagvlak."
-    primaryLabel="Plan een gesprek"
+    [title]="'expertise.cta.title' | t"
+    [description]="'expertise.cta.description' | t"
+    [primaryLabel]="'expertise.cta.primaryLabel' | t"
     primaryRoute="/contact"
-    note="Een eerste gesprek is geheel vrijblijvend."
+    [note]="'expertise.cta.note' | t"
   ></app-cta-panel>
 </main>
