@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -71,14 +71,93 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           </a>
         </nav>
 
-        <a
-          routerLink="/contact"
-          class="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 font-label-sm text-label-sm font-medium text-on-primary transition-all hover:brightness-110 md:px-6"
-        >
-          Neem contact op
-        </a>
+        <div class="flex items-center gap-3">
+          <a
+            routerLink="/contact"
+            class="hidden items-center justify-center rounded-lg bg-primary px-4 py-2.5 font-label-sm text-label-sm font-medium text-on-primary transition-all hover:brightness-110 md:inline-flex md:px-6"
+          >
+            Neem contact op
+          </a>
+
+          <button
+            type="button"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface transition-colors hover:border-primary hover:text-primary md:hidden"
+            [attr.aria-expanded]="menuOpen()"
+            [attr.aria-controls]="mobileMenuId"
+            aria-label="Open of sluit het mobiele navigatiemenu"
+            (click)="toggleMenu()"
+          >
+            <span class="material-symbols-outlined">{{ menuOpen() ? 'close' : 'menu' }}</span>
+          </button>
+        </div>
       </div>
+
+      @if (menuOpen()) {
+        <div
+          [id]="mobileMenuId"
+          class="border-t border-surface-variant bg-surface-container-low px-6 py-4 md:hidden"
+        >
+          <nav class="flex flex-col gap-2" aria-label="Mobiele navigatie">
+            <a
+              routerLink="/"
+              routerLinkActive="bg-primary-fixed text-primary font-semibold"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+            >
+              Home
+            </a>
+            <a
+              routerLink="/diensten"
+              routerLinkActive="bg-primary-fixed text-primary font-semibold"
+              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+            >
+              Diensten
+            </a>
+            <a
+              routerLink="/expertise"
+              routerLinkActive="bg-primary-fixed text-primary font-semibold"
+              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+            >
+              Expertise
+            </a>
+            <a
+              routerLink="/contact"
+              routerLinkActive="bg-primary-fixed text-primary font-semibold"
+              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+            >
+              Contact
+            </a>
+          </nav>
+
+          <a
+            routerLink="/contact"
+            class="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 font-label-sm text-label-sm font-medium text-on-primary transition-all hover:brightness-110"
+            (click)="closeMenu()"
+          >
+            Neem contact op
+          </a>
+        </div>
+      }
     </header>
   `,
 })
-export class SiteHeaderComponent {}
+export class SiteHeaderComponent {
+  protected readonly mobileMenuId = 'site-mobile-navigation';
+  protected readonly menuOpen = signal(false);
+
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+}
