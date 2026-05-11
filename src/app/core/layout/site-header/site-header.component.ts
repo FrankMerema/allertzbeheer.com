@@ -17,7 +17,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           aria-label="Ga naar de homepage van Allertz Beheer B.V."
         >
           <img
-            src="/images/brand/logo.png"
+            src="images/brand/logo.png"
             alt="Allertz Beheer B.V. logo"
             width="115"
             height="115"
