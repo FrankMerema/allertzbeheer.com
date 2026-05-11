@@ -128,7 +128,7 @@
                   [class.border-error]="shouldShowError(contactForm.firstName)"
                   [attr.aria-invalid]="shouldShowError(contactForm.firstName) ? 'true' : 'false'"
                   [formField]="contactForm.firstName"
-                  placeholder="Bijv. Frank…"
+                  placeholder="Voornaam"
                   type="text"
                 />
                 <app-form-field-error
@@ -148,7 +148,7 @@
                   [class.border-error]="shouldShowError(contactForm.lastName)"
                   [attr.aria-invalid]="shouldShowError(contactForm.lastName) ? 'true' : 'false'"
                   [formField]="contactForm.lastName"
-                  placeholder="Bijv. Merema…"
+                  placeholder="Achternaam"
                   type="text"
                 />
                 <app-form-field-error
@@ -171,7 +171,7 @@
                 [class.border-error]="shouldShowError(contactForm.email)"
                 [attr.aria-invalid]="shouldShowError(contactForm.email) ? 'true' : 'false'"
                 [formField]="contactForm.email"
-                placeholder="naam@bedrijf.nl…"
+                placeholder="naam@bedrijf.nl"
                 type="email"
               />
               <app-form-field-error
