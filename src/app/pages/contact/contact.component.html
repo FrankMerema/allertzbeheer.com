@@ -99,9 +99,10 @@
                   placeholder="Uw voornaam"
                   type="text"
                 />
-                @if (errorMessage(contactForm.firstName); as error) {
-                  <p class="text-sm text-error" role="alert">{{ error }}</p>
-                }
+                <app-form-field-error
+                  [field]="contactForm.firstName"
+                  [submitAttempted]="submitAttempted()"
+                ></app-form-field-error>
               </div>
 
               <div class="space-y-2">
@@ -118,9 +119,10 @@
                   placeholder="Uw achternaam"
                   type="text"
                 />
-                @if (errorMessage(contactForm.lastName); as error) {
-                  <p class="text-sm text-error" role="alert">{{ error }}</p>
-                }
+                <app-form-field-error
+                  [field]="contactForm.lastName"
+                  [submitAttempted]="submitAttempted()"
+                ></app-form-field-error>
               </div>
             </div>
 
@@ -138,9 +140,10 @@
                 placeholder="email@bedrijf.nl"
                 type="email"
               />
-              @if (errorMessage(contactForm.email); as error) {
-                <p class="text-sm text-error" role="alert">{{ error }}</p>
-              }
+              <app-form-field-error
+                [field]="contactForm.email"
+                [submitAttempted]="submitAttempted()"
+              ></app-form-field-error>
             </div>
 
             <div class="space-y-2">
@@ -159,9 +162,10 @@
                   <option [value]="subject.value">{{ subject.label }}</option>
                 }
               </select>
-              @if (errorMessage(contactForm.subject); as error) {
-                <p class="text-sm text-error" role="alert">{{ error }}</p>
-              }
+              <app-form-field-error
+                [field]="contactForm.subject"
+                [submitAttempted]="submitAttempted()"
+              ></app-form-field-error>
             </div>
 
             <div class="space-y-2">
@@ -185,9 +189,10 @@
                   {{ contactForm.message().maxLength?.() ?? 1500 }}
                 </span>
               </div>
-              @if (errorMessage(contactForm.message); as error) {
-                <p class="text-sm text-error" role="alert">{{ error }}</p>
-              }
+              <app-form-field-error
+                [field]="contactForm.message"
+                [submitAttempted]="submitAttempted()"
+              ></app-form-field-error>
             </div>
 
             <div class="pt-4">

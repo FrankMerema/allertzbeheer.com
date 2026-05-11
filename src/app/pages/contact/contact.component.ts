@@ -11,6 +11,7 @@ import {
 } from '@angular/forms/signals';
 
 import { ContactInfoItemComponent } from '../../shared/components/contact-info-item/contact-info-item.component';
+import { FormFieldErrorComponent } from '../../shared/components/form-field-error/form-field-error.component';
 import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
 
 interface ContactFormModel {
@@ -31,7 +32,13 @@ const INITIAL_CONTACT_FORM_VALUE: ContactFormModel = {
 
 @Component({
   selector: 'app-contact-page',
-  imports: [PageHeroComponent, ContactInfoItemComponent, FormRoot, FormField],
+  imports: [
+    PageHeroComponent,
+    ContactInfoItemComponent,
+    FormRoot,
+    FormField,
+    FormFieldErrorComponent,
+  ],
   templateUrl: './contact.component.html',
 })
 export class ContactComponent {
@@ -119,13 +126,5 @@ export class ContactComponent {
 
   protected shouldShowError(field: Field<unknown>): boolean {
     return field().invalid() && (field().touched() || this.submitAttempted());
-  }
-
-  protected errorMessage(field: Field<unknown>): string | null {
-    if (!this.shouldShowError(field)) {
-      return null;
-    }
-
-    return field().errors()[0]?.message ?? 'Controleer dit veld.';
   }
 }
