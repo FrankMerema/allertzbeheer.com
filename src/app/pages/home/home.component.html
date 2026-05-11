@@ -1,21 +1,21 @@
 <main id="main-content">
   <app-page-hero
-    eyebrow="Strategisch advies & begeleiding"
-    titlePrefix="Begeleiding bij complexe"
-    titleHighlight="veranderingsprocessen"
-    titleSuffix="."
-    description="Allertz Beheer B.V. biedt de ervaring, rust en structuur die nodig zijn om organisaties door ingrijpende veranderingen te begeleiden."
-    primaryLabel="Onze diensten"
+    [eyebrow]="'home.hero.eyebrow' | t"
+    [titlePrefix]="'home.hero.titlePrefix' | t"
+    [titleHighlight]="'home.hero.titleHighlight' | t"
+    [titleSuffix]="'home.hero.titleSuffix' | t"
+    [description]="'home.hero.description' | t"
+    [primaryLabel]="'home.hero.primaryLabel' | t"
     primaryRoute="/diensten"
-    secondaryLabel="Lees meer over ons"
+    [secondaryLabel]="'home.hero.secondaryLabel' | t"
     secondaryRoute="/expertise"
   ></app-page-hero>
 
   <section class="bg-surface-container-low/70 py-16 md:py-24">
     <div class="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-8">
       <app-section-heading
-        title="Onze expertise"
-        description="Wij combineren analytische diepgang met praktische executiekracht voor bestuurlijke vraagstukken en organisatieontwikkeling."
+        [title]="'home.section.title' | t"
+        [description]="'home.section.description' | t"
       ></app-section-heading>
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
@@ -32,16 +32,17 @@
               strategy
             </span>
           </div>
-          <h3 class="mb-4 font-headline-md text-headline-md">Managementadvies</h3>
+          <h3 class="mb-4 font-headline-md text-headline-md">
+            {{ 'home.cards.advice.title' | t }}
+          </h3>
           <p class="mb-6 font-body-md text-on-surface-variant">
-            Strategische ondersteuning bij organisatievraagstukken, procesoptimalisatie en de
-            ontwikkeling van een langetermijnvisie.
+            {{ 'home.cards.advice.description' | t }}
           </p>
           <a
             routerLink="/diensten"
             class="focus-ring group/link inline-flex items-center gap-1 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
           >
-            Lees meer
+            {{ 'common.readMore' | t }}
             <span
               aria-hidden="true"
               class="material-symbols-outlined transition-transform duration-200 group-hover/link:translate-x-1"
@@ -64,16 +65,17 @@
               groups
             </span>
           </div>
-          <h3 class="mb-4 font-headline-md text-headline-md">Medezeggenschap</h3>
+          <h3 class="mb-4 font-headline-md text-headline-md">
+            {{ 'home.cards.participation.title' | t }}
+          </h3>
           <p class="mb-6 font-body-md text-on-surface-variant">
-            Deskundige begeleiding van ondernemingsraden en directies in een constructieve dialoog
-            die bijdraagt aan zorgvuldige besluitvorming.
+            {{ 'home.cards.participation.description' | t }}
           </p>
           <a
             routerLink="/diensten"
             class="focus-ring group/link inline-flex items-center gap-1 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
           >
-            Lees meer
+            {{ 'common.readMore' | t }}
             <span
               aria-hidden="true"
               class="material-symbols-outlined transition-transform duration-200 group-hover/link:translate-x-1"
@@ -96,16 +98,17 @@
               visibility
             </span>
           </div>
-          <h3 class="mb-4 font-headline-md text-headline-md">Toezicht</h3>
+          <h3 class="mb-4 font-headline-md text-headline-md">
+            {{ 'home.cards.supervision.title' | t }}
+          </h3>
           <p class="mb-6 font-body-md text-on-surface-variant">
-            Professionele invulling van rollen binnen raden van toezicht en raden van
-            commissarissen, met focus op goed bestuur.
+            {{ 'home.cards.supervision.description' | t }}
           </p>
           <a
             routerLink="/expertise"
             class="focus-ring group/link inline-flex items-center gap-1 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
           >
-            Lees meer
+            {{ 'common.readMore' | t }}
             <span
               aria-hidden="true"
               class="material-symbols-outlined transition-transform duration-200 group-hover/link:translate-x-1"
@@ -126,38 +129,38 @@
         >
           <div>
             <h2 class="text-balance mb-6 font-headline-lg text-headline-lg">
-              Over Allertz Beheer B.V.
+              {{ 'home.about.title' | t }}
             </h2>
             <p class="text-pretty mb-8 font-body-lg text-body-lg opacity-90">
-              Met decennia aan ervaring in zowel de publieke als private sector brengen wij rust in
-              complexe situaties en structuur in verandering. Onze aanpak is gebaseerd op
-              integriteit en resultaat.
+              {{ 'home.about.description' | t }}
             </p>
           </div>
           <a
             routerLink="/expertise"
             class="focus-ring inline-flex w-fit items-center justify-center rounded-xl bg-primary px-8 py-3 font-label-sm text-on-primary transition-[background-color,filter,transform] duration-200 hover:-translate-y-0.5 hover:bg-primary-container"
           >
-            Lees meer over onze aanpak
+            {{ 'home.about.cta' | t }}
           </a>
         </div>
 
         <div class="grid grid-cols-2 gap-4 sm:gap-5 md:gap-8">
-          <app-stat-card value="25+" label="Jaren ervaring"></app-stat-card>
-          <app-stat-card value="150+" label="Projecten voltooid"></app-stat-card>
+          <app-stat-card value="25+" [label]="'home.stats.experience' | t"></app-stat-card>
+          <app-stat-card value="150+" [label]="'home.stats.projects' | t"></app-stat-card>
           <div
             class="relative col-span-2 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,#dff0ff,#cce5ff)] p-6 shadow-[0_24px_60px_-36px_rgba(0,97,147,0.3)] sm:p-8"
           >
             <div class="relative z-10">
-              <h3 class="mb-2 font-headline-md text-on-primary-fixed">Direct contact?</h3>
+              <h3 class="mb-2 font-headline-md text-on-primary-fixed">
+                {{ 'home.contactCard.title' | t }}
+              </h3>
               <p class="mb-4 font-body-md text-on-primary-fixed-variant">
-                Wij staan klaar voor een vrijblijvend gesprek over uw uitdagingen.
+                {{ 'home.contactCard.description' | t }}
               </p>
               <a
                 routerLink="/contact"
                 class="focus-ring inline-flex items-center gap-2 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
               >
-                Neem contact op
+                {{ 'home.contactCard.cta' | t }}
                 <span aria-hidden="true" class="material-symbols-outlined text-2xl">mail</span>
               </a>
             </div>

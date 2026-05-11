@@ -1,14 +1,14 @@
 <main class="pb-stack-lg" id="main-content">
   <app-page-hero
-    eyebrow="Contact"
-    titlePrefix="Neem"
-    titleHighlight="contact"
-    titleSuffix=" op"
-    description="Heeft u vragen over onze dienstverlening of wilt u een afspraak maken? Wij denken graag met u mee over uw strategische vraagstukken."
-    primaryLabel="Vraag advies aan"
+    [eyebrow]="'contact.hero.eyebrow' | t"
+    [titlePrefix]="'contact.hero.titlePrefix' | t"
+    [titleHighlight]="'contact.hero.titleHighlight' | t"
+    [titleSuffix]="'contact.hero.titleSuffix' | t"
+    [description]="'contact.hero.description' | t"
+    [primaryLabel]="'contact.hero.primaryLabel' | t"
     primaryHref="#contact-form"
-    secondaryLabel="Direct contact"
-    secondaryHref="tel:+31612345678"
+    [secondaryLabel]="'contact.hero.secondaryLabel' | t"
+    [secondaryHref]="'common.phoneHref' | t"
   ></app-page-hero>
 
   <div class="mx-auto max-w-[1200px] px-5 sm:px-6 md:px-8">
@@ -21,26 +21,26 @@
           class="rounded-[1.5rem] border border-white/80 bg-white/95 p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.3)] sm:p-8"
         >
           <h2 class="mb-stack-md text-balance font-headline-md text-headline-md text-primary">
-            Direct contact
+            {{ 'contact.sidebar.title' | t }}
           </h2>
           <div class="space-y-6">
             <app-contact-info-item
               icon="mail"
-              label="E-mail"
-              value="info@allertzbeheer.nl"
-              href="mailto:info@allertzbeheer.nl"
+              [label]="'contact.sidebar.email' | t"
+              [value]="'common.email' | t"
+              [href]="'common.emailHref' | t"
             ></app-contact-info-item>
             <app-contact-info-item
               icon="call"
-              label="Telefoon"
-              value="+31 (0)20 123 4567"
-              href="tel:+31201234567"
+              [label]="'contact.sidebar.phone' | t"
+              [value]="'common.phoneNumber' | t"
+              [href]="'common.phoneHref' | t"
             ></app-contact-info-item>
             <app-contact-info-item
               icon="location_on"
-              label="Hoofdkantoor"
-              value="Hartelstein 7"
-              secondaryValue="6002 VL Weert, Nederland"
+              [label]="'contact.sidebar.office' | t"
+              [value]="'common.addressLine1' | t"
+              [secondaryValue]="'common.addressLine2' | t"
             ></app-contact-info-item>
           </div>
         </section>
@@ -49,7 +49,9 @@
           class="rounded-[1.5rem] border border-white/75 bg-[linear-gradient(180deg,rgba(241,244,249,0.92),rgba(255,255,255,0.94))] p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.22)] sm:p-8"
         >
           <div class="mb-5 flex items-center gap-3">
-            <h2 class="text-balance font-headline-md text-headline-md text-primary">LinkedIn</h2>
+            <h2 class="text-balance font-headline-md text-headline-md text-primary">
+              {{ 'contact.linkedin.title' | t }}
+            </h2>
           </div>
 
           <div class="flex flex-col items-start gap-4">
@@ -57,16 +59,16 @@
               class="h-20 w-20 overflow-hidden rounded-full border-2 border-white bg-surface-container shadow-[0_12px_30px_-18px_rgba(10,102,194,0.45)]"
             >
               <img
-                alt="Profielfoto van Willem Allertz"
+                [alt]="'contact.linkedin.profileAlt' | t"
                 class="h-full w-full object-cover"
                 src="images/profile/profile-picture.jpeg"
               />
             </div>
 
             <div class="min-w-0">
-              <p class="text-lg font-semibold text-on-surface">Willem Allertz</p>
+              <p class="text-lg font-semibold text-on-surface">{{ 'contact.linkedin.name' | t }}</p>
               <p class="mt-1 text-sm leading-relaxed text-on-surface-variant">
-                Algemeen Directeur Allertz Beheer B.V.
+                {{ 'contact.linkedin.role' | t }}
               </p>
             </div>
           </div>
@@ -77,12 +79,11 @@
             rel="noopener noreferrer"
             target="_blank"
           >
-            Bekijk volledig profiel
+            {{ 'contact.linkedin.cta' | t }}
             <span aria-hidden="true">↗</span>
           </a>
           <p class="mt-4 text-sm leading-relaxed text-on-surface-variant">
-            Volg Willem Allertz op LinkedIn voor inzichten, updates en een actueel overzicht van
-            zijn professionele profiel.
+            {{ 'contact.linkedin.followDescription' | t }}
           </p>
         </section>
       </div>
@@ -112,14 +113,14 @@
                 class="rounded-xl border border-error/20 bg-error-container px-4 py-3 text-sm text-on-error-container"
                 role="alert"
               >
-                Controleer de gemarkeerde velden en probeer het opnieuw.
+                {{ 'contact.form.invalid' | t }}
               </div>
             }
 
             <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
               <div class="space-y-2">
                 <label class="font-label-sm text-label-sm text-on-surface-variant" for="firstName">
-                  Voornaam
+                  {{ 'contact.form.firstName' | t }}
                 </label>
                 <input
                   id="firstName"
@@ -128,7 +129,7 @@
                   [class.border-error]="shouldShowError(contactForm.firstName)"
                   [attr.aria-invalid]="shouldShowError(contactForm.firstName) ? 'true' : 'false'"
                   [formField]="contactForm.firstName"
-                  placeholder="Voornaam"
+                  [placeholder]="'contact.form.firstNamePlaceholder' | t"
                   type="text"
                 />
                 <app-form-field-error
@@ -139,7 +140,7 @@
 
               <div class="space-y-2">
                 <label class="font-label-sm text-label-sm text-on-surface-variant" for="lastName">
-                  Achternaam
+                  {{ 'contact.form.lastName' | t }}
                 </label>
                 <input
                   id="lastName"
@@ -148,7 +149,7 @@
                   [class.border-error]="shouldShowError(contactForm.lastName)"
                   [attr.aria-invalid]="shouldShowError(contactForm.lastName) ? 'true' : 'false'"
                   [formField]="contactForm.lastName"
-                  placeholder="Achternaam"
+                  [placeholder]="'contact.form.lastNamePlaceholder' | t"
                   type="text"
                 />
                 <app-form-field-error
@@ -160,7 +161,7 @@
 
             <div class="space-y-2">
               <label class="font-label-sm text-label-sm text-on-surface-variant" for="email">
-                E-mailadres
+                {{ 'contact.form.email' | t }}
               </label>
               <input
                 id="email"
@@ -171,7 +172,7 @@
                 [class.border-error]="shouldShowError(contactForm.email)"
                 [attr.aria-invalid]="shouldShowError(contactForm.email) ? 'true' : 'false'"
                 [formField]="contactForm.email"
-                placeholder="naam@bedrijf.nl"
+                [placeholder]="'contact.form.emailPlaceholder' | t"
                 type="email"
               />
               <app-form-field-error
@@ -182,7 +183,7 @@
 
             <div class="space-y-2">
               <label class="font-label-sm text-label-sm text-on-surface-variant" for="subject">
-                Onderwerp
+                {{ 'contact.form.subject' | t }}
               </label>
               <select
                 id="subject"
@@ -192,9 +193,9 @@
                 [attr.aria-invalid]="shouldShowError(contactForm.subject) ? 'true' : 'false'"
                 [formField]="contactForm.subject"
               >
-                <option value="">Kies een onderwerp</option>
+                <option value="">{{ 'contact.form.subjectPlaceholder' | t }}</option>
                 @for (subject of subjects; track subject.value) {
-                  <option [value]="subject.value">{{ subject.label }}</option>
+                  <option [value]="subject.value">{{ subject.labelKey | t }}</option>
                 }
               </select>
               <app-form-field-error
@@ -205,7 +206,7 @@
 
             <div class="space-y-2">
               <label class="font-label-sm text-label-sm text-on-surface-variant" for="message">
-                Bericht
+                {{ 'contact.form.message' | t }}
               </label>
               <textarea
                 id="message"
@@ -214,11 +215,11 @@
                 [class.border-error]="shouldShowError(contactForm.message)"
                 [attr.aria-invalid]="shouldShowError(contactForm.message) ? 'true' : 'false'"
                 [formField]="contactForm.message"
-                placeholder="Beschrijf uw vraag of uitdaging…"
+                [placeholder]="'contact.form.messagePlaceholder' | t"
                 rows="6"
               ></textarea>
               <div class="flex items-center justify-between gap-4 text-xs text-on-surface-variant">
-                <span>Beschrijf kort uw vraag, context en gewenste ondersteuning.</span>
+                <span>{{ 'contact.form.helper' | t }}</span>
                 <span>
                   {{ contactForm.message().value().length }}/
                   {{ contactForm.message().maxLength?.() ?? 1500 }}
@@ -237,14 +238,13 @@
                 type="submit"
               >
                 @if (contactForm().submitting()) {
-                  E-mailprogramma wordt geopend…
+                  {{ 'contact.form.submitting' | t }}
                 } @else {
-                  Verstuur bericht
+                  {{ 'contact.form.submit' | t }}
                 }
               </button>
               <p class="mt-4 text-xs text-on-surface-variant">
-                Door het formulier te verzenden, opent u een vooraf ingevuld e-mailconcept in uw
-                e-mailprogramma.
+                {{ 'contact.form.note' | t }}
               </p>
             </div>
           </form>
@@ -256,7 +256,7 @@
       class="relative mt-12 h-[320px] overflow-hidden rounded-[1.6rem] border border-white/80 shadow-[0_28px_70px_-42px_rgba(24,28,32,0.35)] md:mt-stack-lg md:h-[400px]"
     >
       <img
-        alt="Gestileerde kaartweergave van de regio rond het hoofdkantoor"
+        [alt]="'contact.map.alt' | t"
         class="h-full w-full object-cover"
         src="images/contact/map-placeholder.svg"
         width="1600"
@@ -267,8 +267,10 @@
       <div
         class="absolute bottom-4 left-4 max-w-xs rounded-xl border border-outline-variant bg-white/94 p-4 shadow-sm sm:bottom-6 sm:left-6"
       >
-        <p class="font-bold text-on-surface">Hoofdkantoor</p>
-        <p class="text-sm text-on-surface-variant">Hartelstein 7, 6002 VL Weert, Nederland</p>
+        <p class="font-bold text-on-surface">{{ 'contact.sidebar.office' | t }}</p>
+        <p class="text-sm text-on-surface-variant">
+          {{ 'common.addressLine1' | t }}, {{ 'common.addressLine2' | t }}
+        </p>
       </div>
     </div>
   </div>

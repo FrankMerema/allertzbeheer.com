@@ -11,9 +11,11 @@ import {
   required,
 } from '@angular/forms/signals';
 
+import { I18nService } from '../../core/i18n/i18n.service';
 import { ContactInfoItemComponent } from '../../shared/components/contact-info-item/contact-info-item.component';
 import { FormFieldErrorComponent } from '../../shared/components/form-field-error/form-field-error.component';
 import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 interface ContactFormModel {
   firstName: string;
@@ -31,6 +33,14 @@ const INITIAL_CONTACT_FORM_VALUE: ContactFormModel = {
   message: '',
 };
 
+const SUBJECTS = [
+  { value: 'management-consultancy', labelKey: 'contact.form.subject.management' },
+  { value: 'interim-management', labelKey: 'contact.form.subject.interim' },
+  { value: 'strategisch-advies', labelKey: 'contact.form.subject.strategy' },
+  { value: 'medezeggenschap', labelKey: 'contact.form.subject.participation' },
+  { value: 'anders', labelKey: 'contact.form.subject.other' },
+] as const;
+
 @Component({
   selector: 'app-contact-page',
   imports: [
@@ -39,21 +49,16 @@ const INITIAL_CONTACT_FORM_VALUE: ContactFormModel = {
     FormRoot,
     FormField,
     FormFieldErrorComponent,
+    TranslatePipe,
   ],
   templateUrl: './contact.component.html',
 })
 export class ContactComponent {
   private readonly injector = inject(Injector);
   private readonly document = inject(DOCUMENT);
+  private readonly i18n = inject(I18nService);
 
-  protected readonly subjects = [
-    { value: 'management-consultancy', label: 'Managementadvies' },
-    { value: 'interim-management', label: 'Interim-management' },
-    { value: 'strategisch-advies', label: 'Strategisch advies' },
-    { value: 'medezeggenschap', label: 'Medezeggenschap' },
-    { value: 'anders', label: 'Anders' },
-  ] as const;
-
+  protected readonly subjects = SUBJECTS;
   protected readonly submitAttempted = signal(false);
   protected readonly submissionMessage = signal<string | null>(null);
   protected readonly contactModel = signal<ContactFormModel>({ ...INITIAL_CONTACT_FORM_VALUE });
@@ -68,36 +73,51 @@ export class ContactComponent {
   protected readonly contactForm = form(
     this.contactModel,
     (contact) => {
-      required(contact.firstName, { message: 'Vul uw voornaam in.' });
+      required(contact.firstName, {
+        message: () => this.i18n.translate('contact.form.error.firstNameRequired'),
+      });
       minLength(contact.firstName, 2, {
-        message: 'Voornaam moet minimaal 2 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.firstNameMin'),
       });
       maxLength(contact.firstName, 60, {
-        message: 'Voornaam mag maximaal 60 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.firstNameMax'),
       });
 
-      required(contact.lastName, { message: 'Vul uw achternaam in.' });
+      required(contact.lastName, {
+        message: () => this.i18n.translate('contact.form.error.lastNameRequired'),
+      });
       minLength(contact.lastName, 2, {
-        message: 'Achternaam moet minimaal 2 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.lastNameMin'),
       });
       maxLength(contact.lastName, 80, {
-        message: 'Achternaam mag maximaal 80 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.lastNameMax'),
       });
 
-      required(contact.email, { message: 'Vul uw e-mailadres in.' });
-      email(contact.email, { message: 'Vul een geldig e-mailadres in.' });
+      required(contact.email, {
+        message: () => this.i18n.translate('contact.form.error.emailRequired'),
+      });
+      email(contact.email, {
+        error: () => ({
+          kind: 'email',
+          message: this.i18n.translate('contact.form.error.emailInvalid'),
+        }),
+      });
       maxLength(contact.email, 120, {
-        message: 'E-mailadres mag maximaal 120 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.emailMax'),
       });
 
-      required(contact.subject, { message: 'Kies een onderwerp.' });
+      required(contact.subject, {
+        message: () => this.i18n.translate('contact.form.error.subjectRequired'),
+      });
 
-      required(contact.message, { message: 'Beschrijf uw vraag of uitdaging.' });
+      required(contact.message, {
+        message: () => this.i18n.translate('contact.form.error.messageRequired'),
+      });
       minLength(contact.message, 20, {
-        message: 'Bericht moet minimaal 20 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.messageMin'),
       });
       maxLength(contact.message, 1500, {
-        message: 'Bericht mag maximaal 1500 tekens bevatten.',
+        message: () => this.i18n.translate('contact.form.error.messageMax'),
       });
     },
     {
@@ -111,9 +131,7 @@ export class ContactComponent {
           const mailtoUrl = this.buildMailtoUrl(formValue);
 
           this.openMailClient(mailtoUrl);
-          this.submissionMessage.set(
-            'Uw e-mailprogramma wordt geopend… Controleer het conceptbericht en verzend het vervolgens.',
-          );
+          this.submissionMessage.set(this.i18n.translate('contact.form.success'));
           this.submitAttempted.set(false);
 
           return undefined;
@@ -150,21 +168,22 @@ export class ContactComponent {
   private buildMailtoUrl(formValue: ContactFormModel): string {
     const fullName = [formValue.firstName, formValue.lastName].filter(Boolean).join(' ');
     const subjectLabel = this.getSubjectLabel(formValue.subject);
-    const mailSubject = `Aanvraag via allertzbeheer.com: ${subjectLabel}`;
+    const mailSubject = this.i18n.translate('contact.form.mail.subject', { subject: subjectLabel });
     const body = [
-      `Naam: ${fullName}`,
-      `E-mailadres: ${formValue.email}`,
-      `Onderwerp: ${subjectLabel}`,
+      this.i18n.translate('contact.form.mail.name', { value: fullName }),
+      this.i18n.translate('contact.form.mail.email', { value: formValue.email }),
+      this.i18n.translate('contact.form.mail.topic', { value: subjectLabel }),
       '',
       formValue.message,
     ].join('\n');
 
-    return `mailto:info@allertzbeheer.nl?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
+    return `${this.i18n.translate('common.emailHref')}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
   }
 
   private getSubjectLabel(subjectValue: string): string {
-    return (
-      this.subjects.find((subject) => subject.value === subjectValue)?.label ?? 'Contactaanvraag'
-    );
+    const subject = this.subjects.find((item) => item.value === subjectValue);
+    return subject
+      ? this.i18n.translate(subject.labelKey)
+      : this.i18n.translate('contact.form.mail.fallbackSubject');
   }
 }

@@ -8,6 +8,8 @@ describe('ContactComponent', () => {
   let host: HTMLElement;
 
   beforeEach(async () => {
+    localStorage.setItem('allertzbeheer-language', 'nl');
+
     await TestBed.configureTestingModule({
       imports: [ContactComponent],
       providers: [provideRouter([])],
@@ -16,6 +18,10 @@ describe('ContactComponent', () => {
     fixture = TestBed.createComponent(ContactComponent);
     host = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.removeItem('allertzbeheer-language');
   });
 
   it('shows validation errors and focuses the first invalid field on submit', async () => {
