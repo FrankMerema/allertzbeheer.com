@@ -1,0 +1,16 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#EAF2FB"/>
+  <path d="M82 186C240 111 402 106 547 144C722 190 811 318 985 348C1133 374 1289 323 1518 190" stroke="#A9C9E5" stroke-width="44" stroke-linecap="round"/>
+  <path d="M48 640C203 584 363 572 489 600C671 642 822 772 995 758C1149 746 1264 641 1544 531" stroke="#C3DCF0" stroke-width="52" stroke-linecap="round"/>
+  <path d="M236 58L356 212" stroke="#D5E6F5" stroke-width="28" stroke-linecap="round"/>
+  <path d="M510 236L662 96" stroke="#D5E6F5" stroke-width="28" stroke-linecap="round"/>
+  <path d="M742 490L896 370" stroke="#D5E6F5" stroke-width="28" stroke-linecap="round"/>
+  <path d="M1128 236L1306 364" stroke="#D5E6F5" stroke-width="28" stroke-linecap="round"/>
+  <path d="M1178 654L1390 538" stroke="#D5E6F5" stroke-width="28" stroke-linecap="round"/>
+  <path d="M452 760L624 622" stroke="#D5E6F5" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="903" cy="489" r="123" fill="#CCE5FF"/>
+  <circle cx="903" cy="489" r="68" fill="#006193" fill-opacity="0.16"/>
+  <path d="M903 398C864.3 398 833 429.3 833 468C833 523.1 903 603 903 603C903 603 973 523.1 973 468C973 429.3 941.7 398 903 398ZM903 501C884.8 501 870 486.2 870 468C870 449.8 884.8 435 903 435C921.2 435 936 449.8 936 468C936 486.2 921.2 501 903 501Z" fill="#006193"/>
+  <rect x="118" y="726" width="454" height="86" rx="24" fill="white" fill-opacity="0.92"/>
+  <text x="156" y="779" fill="#163047" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600">Regio Weert · Hoofdkantoor</text>
+</svg>

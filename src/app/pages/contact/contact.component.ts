@@ -1,4 +1,5 @@
-import { Component, Injector, inject, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostListener, Injector, computed, inject, signal } from '@angular/core';
 import {
   FormField,
   FormRoot,
@@ -43,11 +44,12 @@ const INITIAL_CONTACT_FORM_VALUE: ContactFormModel = {
 })
 export class ContactComponent {
   private readonly injector = inject(Injector);
+  private readonly document = inject(DOCUMENT);
 
   protected readonly subjects = [
-    { value: 'management-consultancy', label: 'Management Consultancy' },
-    { value: 'interim-management', label: 'Interim Management' },
-    { value: 'strategisch-advies', label: 'Strategisch Advies' },
+    { value: 'management-consultancy', label: 'Managementadvies' },
+    { value: 'interim-management', label: 'Interim-management' },
+    { value: 'strategisch-advies', label: 'Strategisch advies' },
     { value: 'medezeggenschap', label: 'Medezeggenschap' },
     { value: 'anders', label: 'Anders' },
   ] as const;
@@ -55,6 +57,13 @@ export class ContactComponent {
   protected readonly submitAttempted = signal(false);
   protected readonly submissionMessage = signal<string | null>(null);
   protected readonly contactModel = signal<ContactFormModel>({ ...INITIAL_CONTACT_FORM_VALUE });
+  protected readonly hasUnsavedChanges = computed(() => {
+    const value = this.contactModel();
+
+    return Object.entries(INITIAL_CONTACT_FORM_VALUE).some(
+      ([key, initialValue]) => value[key as keyof ContactFormModel] !== initialValue,
+    );
+  });
 
   protected readonly contactForm = form(
     this.contactModel,
@@ -99,16 +108,12 @@ export class ContactComponent {
           this.submissionMessage.set(null);
 
           const formValue = detail.submitted().value() as ContactFormModel;
-          const fullName = [formValue.firstName, formValue.lastName].filter(Boolean).join(' ');
+          const mailtoUrl = this.buildMailtoUrl(formValue);
 
-          await new Promise((resolve) => {
-            setTimeout(resolve, 500);
-          });
-
+          this.openMailClient(mailtoUrl);
           this.submissionMessage.set(
-            `Bedankt ${fullName}, uw bericht is ontvangen. We nemen zo snel mogelijk contact op via ${formValue.email}.`,
+            'Uw e-mailprogramma wordt geopend… Controleer het conceptbericht en verzend het vervolgens.',
           );
-          detail.root().reset({ ...INITIAL_CONTACT_FORM_VALUE });
           this.submitAttempted.set(false);
 
           return undefined;
@@ -124,7 +129,42 @@ export class ContactComponent {
     },
   );
 
+  @HostListener('window:beforeunload', ['$event'])
+  protected confirmBeforeUnload(event: BeforeUnloadEvent): void {
+    if (!this.hasUnsavedChanges()) {
+      return;
+    }
+
+    event.preventDefault();
+    event.returnValue = '';
+  }
+
   protected shouldShowError(field: Field<unknown>): boolean {
     return field().invalid() && (field().touched() || this.submitAttempted());
+  }
+
+  protected openMailClient(mailtoUrl: string): void {
+    this.document.location.href = mailtoUrl;
+  }
+
+  private buildMailtoUrl(formValue: ContactFormModel): string {
+    const fullName = [formValue.firstName, formValue.lastName].filter(Boolean).join(' ');
+    const subjectLabel = this.getSubjectLabel(formValue.subject);
+    const mailSubject = `Aanvraag via allertzbeheer.com: ${subjectLabel}`;
+    const body = [
+      `Naam: ${fullName}`,
+      `E-mailadres: ${formValue.email}`,
+      `Onderwerp: ${subjectLabel}`,
+      '',
+      formValue.message,
+    ].join('\n');
+
+    return `mailto:info@allertzbeheer.nl?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  private getSubjectLabel(subjectValue: string): string {
+    return (
+      this.subjects.find((subject) => subject.value === subjectValue)?.label ?? 'Contactaanvraag'
+    );
   }
 }

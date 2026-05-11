@@ -13,12 +13,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       >
         <a
           routerLink="/"
-          class="flex items-center gap-3 text-on-surface"
+          class="focus-ring flex items-center gap-3 rounded-lg text-on-surface"
           aria-label="Ga naar de homepage van Allertz Beheer B.V."
         >
           <img
             src="/images/brand/logo.png"
             alt="Allertz Beheer B.V. logo"
+            width="115"
+            height="115"
             class="h-10 w-10 rounded-xl object-contain"
           />
           <div class="min-w-0">
@@ -26,11 +28,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               class="m-0 truncate font-headline-md text-lg font-extrabold tracking-tight text-primary"
             >
               Allertz Beheer B.V.
-            </p>
-            <p
-              class="m-0 hidden font-label-sm text-xs uppercase tracking-[0.2em] text-on-surface-variant sm:block"
-            >
-              Managementadvies & begeleiding
             </p>
           </div>
         </a>
@@ -40,7 +37,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             routerLink="/"
             routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
             [routerLinkActiveOptions]="{ exact: true }"
-            class="font-medium text-on-surface-variant transition-colors hover:text-primary"
+            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
             ariaCurrentWhenActive="page"
           >
             Home
@@ -48,7 +45,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a
             routerLink="/diensten"
             routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            class="font-medium text-on-surface-variant transition-colors hover:text-primary"
+            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
             ariaCurrentWhenActive="page"
           >
             Diensten
@@ -56,7 +53,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a
             routerLink="/expertise"
             routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            class="font-medium text-on-surface-variant transition-colors hover:text-primary"
+            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
             ariaCurrentWhenActive="page"
           >
             Expertise
@@ -64,7 +61,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a
             routerLink="/contact"
             routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            class="font-medium text-on-surface-variant transition-colors hover:text-primary"
+            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
             ariaCurrentWhenActive="page"
           >
             Contact
@@ -74,20 +71,22 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         <div class="flex items-center gap-3">
           <a
             routerLink="/contact"
-            class="hidden items-center justify-center rounded-lg bg-primary px-4 py-2.5 font-label-sm text-label-sm font-medium text-on-primary transition-all hover:brightness-110 md:inline-flex md:px-6"
+            class="focus-ring hidden items-center justify-center rounded-lg bg-primary px-4 py-2.5 font-label-sm text-label-sm font-medium text-on-primary transition-[filter] duration-200 hover:brightness-110 md:inline-flex md:px-6"
           >
             Neem contact op
           </a>
 
           <button
             type="button"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface transition-colors hover:border-primary hover:text-primary md:hidden"
+            class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg border border-outline-variant bg-surface-container-low text-on-surface transition-[border-color,color,background-color] duration-200 hover:border-primary hover:text-primary md:hidden"
             [attr.aria-expanded]="menuOpen()"
             [attr.aria-controls]="mobileMenuId"
             aria-label="Open of sluit het mobiele navigatiemenu"
             (click)="toggleMenu()"
           >
-            <span class="material-symbols-outlined">{{ menuOpen() ? 'close' : 'menu' }}</span>
+            <span aria-hidden="true" class="material-symbols-outlined">
+              {{ menuOpen() ? 'close' : 'menu' }}
+            </span>
           </button>
         </div>
       </div>
@@ -102,7 +101,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               routerLink="/"
               routerLinkActive="bg-primary-fixed text-primary font-semibold"
               [routerLinkActiveOptions]="{ exact: true }"
-              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
               ariaCurrentWhenActive="page"
               (click)="closeMenu()"
             >
@@ -111,7 +110,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             <a
               routerLink="/diensten"
               routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
               ariaCurrentWhenActive="page"
               (click)="closeMenu()"
             >
@@ -120,7 +119,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             <a
               routerLink="/expertise"
               routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
               ariaCurrentWhenActive="page"
               (click)="closeMenu()"
             >
@@ -129,7 +128,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             <a
               routerLink="/contact"
               routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              class="rounded-lg px-4 py-3 text-on-surface-variant transition-colors hover:bg-primary-fixed/50 hover:text-primary"
+              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
               ariaCurrentWhenActive="page"
               (click)="closeMenu()"
             >
@@ -139,7 +138,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
           <a
             routerLink="/contact"
-            class="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 font-label-sm text-label-sm font-medium text-on-primary transition-all hover:brightness-110"
+            class="focus-ring mt-4 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 font-label-sm text-label-sm font-medium text-on-primary transition-[filter] duration-200 hover:brightness-110"
             (click)="closeMenu()"
           >
             Neem contact op

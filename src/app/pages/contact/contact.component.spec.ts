@@ -36,7 +36,14 @@ describe('ContactComponent', () => {
     expect(firstNameInput.getAttribute('aria-invalid')).toBe('true');
   });
 
-  it('submits a valid form, shows a success message, and resets the fields', async () => {
+  it('submits a valid form and opens a prefilled mail client draft', async () => {
+    const openMailClientSpy = vi
+      .spyOn(
+        fixture.componentInstance as unknown as { openMailClient: (mailtoUrl: string) => void },
+        'openMailClient',
+      )
+      .mockImplementation(() => undefined);
+
     fixture.componentInstance['contactModel'].set({
       firstName: 'Frank',
       lastName: 'Merema',
@@ -49,19 +56,22 @@ describe('ContactComponent', () => {
     const form = host.querySelector('#contact-form') as HTMLFormElement;
     form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     fixture.detectChanges();
-
-    await new Promise((resolve) => setTimeout(resolve, 550));
     await fixture.whenStable();
     fixture.detectChanges();
 
+    expect(openMailClientSpy).toHaveBeenCalledWith(
+      'mailto:info@allertzbeheer.nl?subject=Aanvraag%20via%20allertzbeheer.com%3A%20Strategisch%20advies&body=Naam%3A%20Frank%20Merema%0AE-mailadres%3A%20frank%40example.com%0AOnderwerp%3A%20Strategisch%20advies%0A%0AIk%20wil%20graag%20sparren%20over%20strategisch%20advies%20voor%20onze%20organisatie.',
+    );
     expect(host.textContent).toContain(
-      'Bedankt Frank Merema, uw bericht is ontvangen. We nemen zo snel mogelijk contact op via frank@example.com.',
+      'Uw e-mailprogramma wordt geopend… Controleer het conceptbericht en verzend het vervolgens.',
     );
 
-    expect((host.querySelector('#firstName') as HTMLInputElement).value).toBe('');
-    expect((host.querySelector('#lastName') as HTMLInputElement).value).toBe('');
-    expect((host.querySelector('#email') as HTMLInputElement).value).toBe('');
-    expect((host.querySelector('#subject') as HTMLSelectElement).value).toBe('');
-    expect((host.querySelector('#message') as HTMLTextAreaElement).value).toBe('');
+    expect((host.querySelector('#firstName') as HTMLInputElement).value).toBe('Frank');
+    expect((host.querySelector('#lastName') as HTMLInputElement).value).toBe('Merema');
+    expect((host.querySelector('#email') as HTMLInputElement).value).toBe('frank@example.com');
+    expect((host.querySelector('#subject') as HTMLSelectElement).value).toBe('strategisch-advies');
+    expect((host.querySelector('#message') as HTMLTextAreaElement).value).toBe(
+      'Ik wil graag sparren over strategisch advies voor onze organisatie.',
+    );
   });
 });

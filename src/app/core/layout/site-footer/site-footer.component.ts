@@ -20,10 +20,27 @@ import { RouterLink } from '@angular/router';
           class="flex flex-wrap gap-5 text-sm text-on-surface-variant"
           aria-label="Footer navigatie"
         >
-          <a routerLink="/" class="transition-colors hover:text-primary">Home</a>
-          <a routerLink="/diensten" class="transition-colors hover:text-primary">Diensten</a>
-          <a routerLink="/expertise" class="transition-colors hover:text-primary">Expertise</a>
-          <a routerLink="/contact" class="transition-colors hover:text-primary">Contact</a>
+          <a routerLink="/" class="focus-ring rounded-sm transition-colors hover:text-primary"
+            >Home</a
+          >
+          <a
+            routerLink="/diensten"
+            class="focus-ring rounded-sm transition-colors hover:text-primary"
+          >
+            Diensten
+          </a>
+          <a
+            routerLink="/expertise"
+            class="focus-ring rounded-sm transition-colors hover:text-primary"
+          >
+            Expertise
+          </a>
+          <a
+            routerLink="/contact"
+            class="focus-ring rounded-sm transition-colors hover:text-primary"
+          >
+            Contact
+          </a>
         </nav>
       </div>
     </footer>

@@ -1,124 +1,150 @@
-<main class="pb-stack-lg">
+<main class="pb-stack-lg" id="main-content">
   <app-page-hero
-    eyebrow="Onze Expertise"
-    titlePrefix="Strategische Consultancy &"
-    titleHighlight="Bestuurlijke Facilitering."
-    description="Allertz Beheer B.V. biedt hoogwaardige ondersteuning bij complexe veranderingsprocessen, medezeggenschap en toezicht. Wij slaan de brug tussen zakelijke ambities en maatschappelijke impact."
-    primaryLabel="Plan een Gesprek"
+    eyebrow="Onze expertise"
+    titlePrefix="Strategisch advies &"
+    titleHighlight="bestuurlijke begeleiding"
+    titleSuffix="."
+    description="Allertz Beheer B.V. ondersteunt organisaties bij complexe veranderingsprocessen, medezeggenschap en toezicht. Wij verbinden zakelijke ambities met maatschappelijke verantwoordelijkheid."
+    primaryLabel="Plan een gesprek"
     primaryRoute="/contact"
     secondaryLabel="Bekijk kerngebieden"
     secondaryHref="#kerngebieden"
   ></app-page-hero>
 
-  <section class="mx-auto max-w-[1200px] space-y-stack-md px-6 md:px-8" id="kerngebieden">
+  <section
+    class="mx-auto max-w-[1200px] space-y-stack-md px-5 scroll-mt-32 sm:px-6 md:px-8"
+    id="kerngebieden"
+  >
     <app-section-heading
-      title="Kerngebieden van Dienstverlening"
+      title="Kerngebieden van onze dienstverlening"
       [centered]="true"
       [showAccent]="true"
     ></app-section-heading>
 
-    <div class="grid grid-cols-1 gap-gutter md:grid-cols-3">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-gutter">
       <article
-        class="group rounded-xl border border-outline-variant bg-white p-10 transition-all duration-300 hover:border-primary/30 hover:shadow-md md:col-span-2"
+        class="group rounded-[1.5rem] border border-white/80 bg-white/95 p-7 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.35)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_34px_80px_-42px_rgba(0,97,147,0.28)] md:col-span-2 md:p-10"
       >
         <div class="flex h-full flex-col justify-between">
           <div>
-            <span class="material-symbols-outlined mb-6 text-4xl text-primary">dynamic_form</span>
+            <span aria-hidden="true" class="material-symbols-outlined mb-6 text-4xl text-primary">
+              dynamic_form
+            </span>
             <h3
               class="mb-4 font-headline-md text-headline-md transition-colors group-hover:text-primary"
             >
               Verandermanagement
             </h3>
             <p class="font-body-md leading-relaxed text-on-surface-variant">
-              Begeleiding van organisaties door complexe transformaties. Wij focussen op de
-              menselijke kant van verandering, waarbij we structurele aanpassingen koppelen aan
-              cultuurverandering en draagvlak binnen de profit en non-profit sector.
+              Begeleiding van organisaties bij complexe transformaties. Wij richten ons op de
+              menselijke kant van verandering en verbinden structurele aanpassingen met
+              cultuurverandering en draagvlak binnen profit- en non-profitorganisaties.
             </p>
           </div>
           <ul
             class="mt-8 grid grid-cols-1 gap-4 border-t border-surface-container pt-8 sm:grid-cols-2"
           >
             <li class="flex items-center gap-2 text-sm text-secondary">
-              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
-              Strategische Analyse
+              <span aria-hidden="true" class="material-symbols-outlined text-sm text-primary">
+                check_circle
+              </span>
+              Strategische analyse
             </li>
             <li class="flex items-center gap-2 text-sm text-secondary">
-              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-sm text-primary">
+                check_circle
+              </span>
               Cultuurdiagnose
             </li>
             <li class="flex items-center gap-2 text-sm text-secondary">
-              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-sm text-primary">
+                check_circle
+              </span>
               Implementatiebegeleiding
             </li>
             <li class="flex items-center gap-2 text-sm text-secondary">
-              <span class="material-symbols-outlined text-sm text-primary">check_circle</span>
-              Coaching van Leiderschap
+              <span aria-hidden="true" class="material-symbols-outlined text-sm text-primary">
+                check_circle
+              </span>
+              Leiderschapscoaching
             </li>
           </ul>
         </div>
       </article>
 
       <article
-        class="group rounded-xl border border-outline-variant bg-surface-container-low p-8 transition-all duration-300 hover:shadow-md"
+        class="group rounded-[1.5rem] border border-white/70 bg-[linear-gradient(180deg,rgba(241,244,249,0.9),rgba(255,255,255,0.92))] p-7 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.28)] transition-[transform,box-shadow,color] duration-300 hover:-translate-y-1 hover:shadow-[0_34px_80px_-42px_rgba(24,28,32,0.28)] md:p-8"
       >
-        <span class="material-symbols-outlined mb-6 text-4xl text-primary">visibility</span>
+        <span aria-hidden="true" class="material-symbols-outlined mb-6 text-4xl text-primary">
+          visibility
+        </span>
         <h3
           class="mb-4 font-headline-md text-headline-md transition-colors group-hover:text-primary"
         >
-          Toezicht &amp; Bestuur
+          Toezicht &amp; bestuur
         </h3>
         <p class="font-body-md leading-relaxed text-on-surface-variant">
-          Onafhankelijke invulling van toezichthoudende rollen (RvC/RvT). Wij waarborgen corporate
-          governance en bieden een kritisch, maar constructief klankbord voor besturen in dynamische
+          Onafhankelijke invulling van toezichthoudende rollen (RvC/RvT). Wij bewaken goed bestuur
+          en bieden een kritisch, maar constructief klankbord voor besturen in dynamische
           omgevingen.
         </p>
         <div
-          class="mt-12 rounded border border-outline-variant/30 bg-white/50 p-4 text-sm italic text-secondary"
+          class="mt-12 rounded-xl border border-outline-variant/30 bg-white/60 p-4 text-sm italic text-secondary"
         >
-          "Focus op integer bestuur en lange-termijn waardecreatie."
+          “Integer bestuur en langetermijnwaardecreatie.”
         </div>
       </article>
 
       <article
-        class="group rounded-xl border border-outline-variant bg-white p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+        class="group rounded-[1.5rem] border border-white/80 bg-white/95 p-7 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.35)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_34px_80px_-42px_rgba(0,97,147,0.28)] md:p-8"
       >
-        <span class="material-symbols-outlined mb-6 text-4xl text-primary">groups</span>
+        <span aria-hidden="true" class="material-symbols-outlined mb-6 text-4xl text-primary">
+          groups
+        </span>
         <h3
           class="mb-4 font-headline-md text-headline-md transition-colors group-hover:text-primary"
         >
           Medezeggenschap
         </h3>
         <p class="font-body-md leading-relaxed text-on-surface-variant">
-          Expertise in het faciliteren van de relatie tussen directie en Ondernemingsraad (OR). Wij
-          ondersteunen bij de inrichting van participatieprocessen die werkelijk waarde toevoegen
-          aan de besluitvorming.
+          Expertise in het begeleiden van de relatie tussen directie en ondernemingsraad (OR). Wij
+          ondersteunen bij participatieprocessen die werkelijk bijdragen aan zorgvuldige
+          besluitvorming.
         </p>
       </article>
 
       <article
-        class="group relative overflow-hidden rounded-xl bg-inverse-surface p-8 text-white transition-all duration-300 md:col-span-2"
+        class="group relative overflow-hidden rounded-[1.6rem] bg-[linear-gradient(145deg,#1d252d,#33404b)] p-7 text-white shadow-[0_28px_70px_-36px_rgba(24,28,32,0.55)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_34px_86px_-40px_rgba(24,28,32,0.5)] md:col-span-2 md:p-8"
       >
         <div class="relative z-10">
-          <span class="material-symbols-outlined mb-6 text-4xl text-primary-fixed">forum</span>
-          <h3 class="mb-4 font-headline-md text-headline-md text-white">Project Facilitering</h3>
+          <span
+            aria-hidden="true"
+            class="material-symbols-outlined mb-6 text-4xl text-primary-fixed"
+          >
+            forum
+          </span>
+          <h3 class="mb-4 font-headline-md text-headline-md text-white">Projectbegeleiding</h3>
           <p class="max-w-xl font-body-md leading-relaxed text-surface-variant">
             Het leiden van strategische sessies, heidagen en complexe overlegstructuren. Allertz
-            Beheer fungeert als de neutrale procesbegeleider die resultaten boekt zonder de
-            inhoudelijke regie van de opdrachtgever over te nemen.
+            Beheer fungeert als neutrale procesbegeleider die resultaat boekt zonder de inhoudelijke
+            regie van de opdrachtgever over te nemen.
           </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <span class="rounded-full bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
-              >Profit Sector</span
+          <div class="mt-8 flex flex-wrap gap-3 sm:gap-4">
+            <span
+              class="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
+              >Bedrijfsleven</span
             >
-            <span class="rounded-full bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
-              >Non-Profit</span
+            <span
+              class="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
+              >Non-profit</span
             >
-            <span class="rounded-full bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
+            <span
+              class="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium tracking-wide"
               >Overheid</span
             >
           </div>
         </div>
-        <div class="absolute -bottom-10 -right-10 opacity-5">
+        <div aria-hidden="true" class="absolute -bottom-10 -right-10 opacity-5">
           <span class="material-symbols-outlined text-[200px]">settings_suggest</span>
         </div>
       </article>
@@ -126,41 +152,45 @@
   </section>
 
   <section
-    class="mx-auto mt-24 max-w-[1200px] rounded-[1rem] bg-surface-container px-6 py-16 md:px-8"
+    class="mx-auto mt-20 max-w-[1200px] rounded-[1.6rem] bg-surface-container px-5 py-12 shadow-[0_26px_70px_-46px_rgba(24,28,32,0.35)] sm:px-6 md:mt-24 md:px-8 md:py-16"
   >
-    <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+    <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12">
       <div>
-        <h2 class="mb-6 font-headline-lg text-headline-lg">
-          Een Dubbel Focus: Profit &amp; Non-Profit
+        <h2 class="text-balance mb-6 font-headline-lg text-headline-lg">
+          Een dubbele focus: bedrijfsleven &amp; maatschappelijke organisaties
         </h2>
-        <p class="mb-8 font-body-md leading-relaxed text-on-surface-variant">
+        <p class="text-pretty mb-8 font-body-md leading-relaxed text-on-surface-variant">
           Wij begrijpen de unieke dynamiek van beide werelden. Of het nu gaat om het optimaliseren
           van rendement in het bedrijfsleven of het realiseren van maatschappelijke doelstellingen
-          in de zorg, het onderwijs of woningbouwcorporaties; onze methodieken zijn universeel maar
-          de toepassing is altijd maatwerk.
+          in de zorg, het onderwijs of woningbouwcorporaties: onze methodieken zijn breed inzetbaar,
+          maar de toepassing is altijd maatwerk.
         </p>
         <div class="space-y-4">
           <div class="flex items-start gap-4">
             <div
-              class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-outline-variant bg-white"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-outline-variant/60 bg-white shadow-sm"
             >
-              <span class="material-symbols-outlined text-primary">business</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-primary"
+                >business</span
+              >
             </div>
             <div>
-              <p class="font-bold text-on-surface">Corporate Reliability</p>
+              <p class="font-bold text-on-surface">Zakelijke slagkracht</p>
               <p class="text-sm text-secondary">
-                Gestructureerde processen en heldere KPI's voor zakelijk succes.
+                Gestructureerde processen en heldere KPI’s voor zakelijk succes.
               </p>
             </div>
           </div>
           <div class="flex items-start gap-4">
             <div
-              class="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-outline-variant bg-white"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-outline-variant/60 bg-white shadow-sm"
             >
-              <span class="material-symbols-outlined text-primary">volunteer_activism</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-primary">
+                volunteer_activism
+              </span>
             </div>
             <div>
-              <p class="font-bold text-on-surface">Intellectual Rigor</p>
+              <p class="font-bold text-on-surface">Analytische diepgang</p>
               <p class="text-sm text-secondary">
                 Diepgaande analyse van complexe maatschappelijke vraagstukken.
               </p>
@@ -171,29 +201,29 @@
 
       <div class="grid grid-cols-2 gap-4">
         <div
-          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+          class="flex flex-col justify-center rounded-[1.2rem] border border-white/80 bg-white/90 p-5 text-center shadow-[0_20px_50px_-40px_rgba(24,28,32,0.35)] md:p-6"
         >
-          <p class="font-headline-md text-primary">Profit</p>
+          <p class="font-headline-md text-primary">Bedrijfsleven</p>
           <p class="mt-2 text-xs uppercase tracking-widest text-secondary">
-            Efficiëntie &amp; Groei
+            Efficiëntie &amp; groei
           </p>
         </div>
         <div
-          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+          class="flex flex-col justify-center rounded-[1.2rem] border border-white/80 bg-white/90 p-5 text-center shadow-[0_20px_50px_-40px_rgba(24,28,32,0.35)] md:p-6"
         >
           <p class="font-headline-md text-primary">Zorg</p>
           <p class="mt-2 text-xs uppercase tracking-widest text-secondary">
-            Kwaliteit &amp; Continuïteit
+            Kwaliteit &amp; continuïteit
           </p>
         </div>
         <div
-          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+          class="flex flex-col justify-center rounded-[1.2rem] border border-white/80 bg-white/90 p-5 text-center shadow-[0_20px_50px_-40px_rgba(24,28,32,0.35)] md:p-6"
         >
           <p class="font-headline-md text-primary">Wonen</p>
-          <p class="mt-2 text-xs uppercase tracking-widest text-secondary">Maatschappelijke Rol</p>
+          <p class="mt-2 text-xs uppercase tracking-widest text-secondary">Maatschappelijke rol</p>
         </div>
         <div
-          class="flex flex-col justify-center rounded-lg border border-outline-variant bg-white p-6 text-center"
+          class="flex flex-col justify-center rounded-[1.2rem] border border-white/80 bg-white/90 p-5 text-center shadow-[0_20px_50px_-40px_rgba(24,28,32,0.35)] md:p-6"
         >
           <p class="font-headline-md text-primary">Overheid</p>
           <p class="mt-2 text-xs uppercase tracking-widest text-secondary">Transparantie</p>
@@ -205,7 +235,7 @@
   <app-cta-panel
     title="Klaar voor de volgende stap?"
     description="Neem vandaag nog contact op voor een vrijblijvende kennismaking en ontdek hoe Allertz Beheer B.V. uw organisatie kan versterken."
-    primaryLabel="Plan een Gesprek"
+    primaryLabel="Plan een gesprek"
     primaryRoute="/contact"
     secondaryLabel="Bekijk expertise"
     secondaryRoute="/expertise"
