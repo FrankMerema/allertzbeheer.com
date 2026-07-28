@@ -68,77 +68,14 @@
       ></app-section-heading>
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
-        <article
-          class="rounded-[1.4rem] border border-white/80 bg-white/92 p-6 shadow-[0_24px_60px_-42px_rgba(24,28,32,0.35)] md:p-8"
-        >
-          <div class="font-headline-xl text-5xl font-extrabold text-surface-container-highest">
-            01
-          </div>
-          <h3 class="mt-4 font-headline-md text-primary">
-            {{ 'expertise.process.step1Title' | t }}
-          </h3>
-          <p class="mt-3 font-body-md text-on-surface-variant">
-            {{ 'expertise.process.step1Description' | t }}
-          </p>
-          <ul class="space-y-2 pt-5">
-            <li class="flex items-center gap-2 text-on-surface-variant">
-              <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              {{ 'expertise.process.step1Item1' | t }}
-            </li>
-            <li class="flex items-center gap-2 text-on-surface-variant">
-              <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              {{ 'expertise.process.step1Item2' | t }}
-            </li>
-          </ul>
-        </article>
-
-        <article
-          class="rounded-[1.4rem] border border-white/80 bg-white/92 p-6 shadow-[0_24px_60px_-42px_rgba(24,28,32,0.35)] md:p-8"
-        >
-          <div class="font-headline-xl text-5xl font-extrabold text-surface-container-highest">
-            02
-          </div>
-          <h3 class="mt-4 font-headline-md text-primary">
-            {{ 'expertise.process.step2Title' | t }}
-          </h3>
-          <p class="mt-3 font-body-md text-on-surface-variant">
-            {{ 'expertise.process.step2Description' | t }}
-          </p>
-          <ul class="space-y-2 pt-5">
-            <li class="flex items-center gap-2 text-on-surface-variant">
-              <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              {{ 'expertise.process.step2Item1' | t }}
-            </li>
-            <li class="flex items-center gap-2 text-on-surface-variant">
-              <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              {{ 'expertise.process.step2Item2' | t }}
-            </li>
-          </ul>
-        </article>
-
-        <article
-          class="rounded-[1.4rem] border border-white/80 bg-white/92 p-6 shadow-[0_24px_60px_-42px_rgba(24,28,32,0.35)] md:p-8"
-        >
-          <div class="font-headline-xl text-5xl font-extrabold text-surface-container-highest">
-            03
-          </div>
-          <h3 class="mt-4 font-headline-md text-primary">
-            {{ 'expertise.process.step3Title' | t }}
-          </h3>
-          <p class="mt-3 font-body-md text-on-surface-variant">
-            {{ 'expertise.process.step3Description' | t }}
-          </p>
-          <ul class="space-y-2 pt-5">
-            <li class="flex items-center gap-2 text-on-surface-variant">
-              <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              {{ 'expertise.process.step3Item1' | t }}
-            </li>
-            <li class="flex items-center gap-2 text-on-surface-variant">
-              <span aria-hidden="true" class="h-1.5 w-1.5 rounded-full bg-primary"></span>
-              {{ 'expertise.process.step3Item2' | t }}
-            </li>
-          </ul>
-        </article>
+        @for (processStep of processSteps; track processStep.titleKey) {
+          <app-process-step-card
+            [step]="processStep.step"
+            [title]="processStep.titleKey | t"
+            [description]="processStep.descriptionKey | t"
+            [itemKeys]="processStep.itemKeys"
+          ></app-process-step-card>
+        }
       </div>
     </div>
   </section>
