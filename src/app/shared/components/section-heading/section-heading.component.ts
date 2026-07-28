@@ -2,19 +2,7 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-section-heading',
-  template: `
-    <div [class]="wrapperClass()">
-      <h2 [class]="titleClass()">{{ title() }}</h2>
-
-      @if (description()) {
-        <p [class]="descriptionClass()">{{ description() }}</p>
-      }
-
-      @if (showAccent()) {
-        <div [class]="accentClass()"></div>
-      }
-    </div>
-  `,
+  templateUrl: './section-heading.component.html',
 })
 export class SectionHeadingComponent {
   readonly title = input.required<string>();
