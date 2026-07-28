@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
+import { NAV_ITEMS } from '../nav-items';
 
 @Component({
   selector: 'app-site-footer',
@@ -24,27 +25,14 @@ import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
           class="flex flex-wrap gap-5 text-sm text-on-surface-variant"
           [attr.aria-label]="'footer.navLabel' | t"
         >
-          <a routerLink="/" class="focus-ring rounded-sm transition-colors hover:text-primary">
-            {{ 'nav.home' | t }}
-          </a>
-          <a
-            routerLink="/diensten"
-            class="focus-ring rounded-sm transition-colors hover:text-primary"
-          >
-            {{ 'nav.services' | t }}
-          </a>
-          <a
-            routerLink="/expertise"
-            class="focus-ring rounded-sm transition-colors hover:text-primary"
-          >
-            {{ 'nav.expertise' | t }}
-          </a>
-          <a
-            routerLink="/contact"
-            class="focus-ring rounded-sm transition-colors hover:text-primary"
-          >
-            {{ 'nav.contact' | t }}
-          </a>
+          @for (item of navItems; track item.route) {
+            <a
+              [routerLink]="item.route"
+              class="focus-ring rounded-sm transition-colors hover:text-primary"
+            >
+              {{ item.labelKey | t }}
+            </a>
+          }
         </nav>
       </div>
     </footer>
@@ -52,4 +40,5 @@ import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 })
 export class SiteFooterComponent {
   protected readonly currentYear = new Date().getFullYear();
+  protected readonly navItems = NAV_ITEMS;
 }

@@ -19,104 +19,14 @@
       ></app-section-heading>
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
-        <article
-          class="group rounded-[1.4rem] border border-white/80 bg-white/90 p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.35)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_32px_70px_-38px_rgba(0,97,147,0.28)] sm:p-8"
-        >
-          <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-fixed transition-colors group-hover:bg-primary"
-          >
-            <span
-              aria-hidden="true"
-              class="material-symbols-outlined text-primary group-hover:text-on-primary"
-            >
-              strategy
-            </span>
-          </div>
-          <h3 class="mb-4 font-headline-md text-headline-md">
-            {{ 'home.cards.advice.title' | t }}
-          </h3>
-          <p class="mb-6 font-body-md text-on-surface-variant">
-            {{ 'home.cards.advice.description' | t }}
-          </p>
-          <a
-            routerLink="/diensten"
-            class="focus-ring group/link inline-flex items-center gap-1 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
-          >
-            {{ 'common.readMore' | t }}
-            <span
-              aria-hidden="true"
-              class="material-symbols-outlined transition-transform duration-200 group-hover/link:translate-x-1"
-            >
-              arrow_forward
-            </span>
-          </a>
-        </article>
-
-        <article
-          class="group rounded-[1.4rem] border border-white/80 bg-white/90 p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.35)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_32px_70px_-38px_rgba(0,97,147,0.28)] sm:p-8"
-        >
-          <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-fixed transition-colors group-hover:bg-primary"
-          >
-            <span
-              aria-hidden="true"
-              class="material-symbols-outlined text-primary group-hover:text-on-primary"
-            >
-              groups
-            </span>
-          </div>
-          <h3 class="mb-4 font-headline-md text-headline-md">
-            {{ 'home.cards.participation.title' | t }}
-          </h3>
-          <p class="mb-6 font-body-md text-on-surface-variant">
-            {{ 'home.cards.participation.description' | t }}
-          </p>
-          <a
-            routerLink="/diensten"
-            class="focus-ring group/link inline-flex items-center gap-1 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
-          >
-            {{ 'common.readMore' | t }}
-            <span
-              aria-hidden="true"
-              class="material-symbols-outlined transition-transform duration-200 group-hover/link:translate-x-1"
-            >
-              arrow_forward
-            </span>
-          </a>
-        </article>
-
-        <article
-          class="group rounded-[1.4rem] border border-white/80 bg-white/90 p-6 shadow-[0_24px_60px_-40px_rgba(24,28,32,0.35)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_32px_70px_-38px_rgba(0,97,147,0.28)] sm:p-8"
-        >
-          <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-fixed transition-colors group-hover:bg-primary"
-          >
-            <span
-              aria-hidden="true"
-              class="material-symbols-outlined text-primary group-hover:text-on-primary"
-            >
-              visibility
-            </span>
-          </div>
-          <h3 class="mb-4 font-headline-md text-headline-md">
-            {{ 'home.cards.supervision.title' | t }}
-          </h3>
-          <p class="mb-6 font-body-md text-on-surface-variant">
-            {{ 'home.cards.supervision.description' | t }}
-          </p>
-          <a
-            routerLink="/expertise"
-            class="focus-ring group/link inline-flex items-center gap-1 rounded-sm font-label-sm text-primary transition-colors hover:text-primary-container"
-          >
-            {{ 'common.readMore' | t }}
-            <span
-              aria-hidden="true"
-              class="material-symbols-outlined transition-transform duration-200 group-hover/link:translate-x-1"
-            >
-              arrow_forward
-            </span>
-          </a>
-        </article>
+        @for (card of featureCards; track card.titleKey) {
+          <app-feature-card
+            [icon]="card.icon"
+            [title]="card.titleKey | t"
+            [description]="card.descriptionKey | t"
+            [route]="card.route"
+          ></app-feature-card>
+        }
       </div>
     </div>
   </section>

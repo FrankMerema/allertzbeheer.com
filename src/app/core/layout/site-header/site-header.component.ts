@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { I18nService } from '../../i18n/i18n.service';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 import type { Language } from '../../i18n/translations';
+import { NAV_ITEMS } from '../nav-items';
 
 @Component({
   selector: 'app-site-header',
@@ -37,39 +38,17 @@ import type { Language } from '../../i18n/translations';
         </a>
 
         <nav class="hidden items-center gap-8 md:flex" [attr.aria-label]="'header.navLabel' | t">
-          <a
-            routerLink="/"
-            routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
-            ariaCurrentWhenActive="page"
-          >
-            {{ 'nav.home' | t }}
-          </a>
-          <a
-            routerLink="/diensten"
-            routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
-            ariaCurrentWhenActive="page"
-          >
-            {{ 'nav.services' | t }}
-          </a>
-          <a
-            routerLink="/expertise"
-            routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
-            ariaCurrentWhenActive="page"
-          >
-            {{ 'nav.expertise' | t }}
-          </a>
-          <a
-            routerLink="/contact"
-            routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
-            class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
-            ariaCurrentWhenActive="page"
-          >
-            {{ 'nav.contact' | t }}
-          </a>
+          @for (item of navItems; track item.route) {
+            <a
+              [routerLink]="item.route"
+              routerLinkActive="border-b-2 border-primary pb-1 text-primary font-semibold"
+              [routerLinkActiveOptions]="{ exact: item.exact }"
+              class="focus-ring rounded-sm font-medium text-on-surface-variant transition-colors hover:text-primary"
+              ariaCurrentWhenActive="page"
+            >
+              {{ item.labelKey | t }}
+            </a>
+          }
         </nav>
 
         <div class="flex items-center gap-3">
@@ -130,43 +109,18 @@ import type { Language } from '../../i18n/translations';
           class="border-t border-surface-variant bg-surface-container-low px-6 py-4 md:hidden"
         >
           <nav class="flex flex-col gap-2" [attr.aria-label]="'header.mobileNavLabel' | t">
-            <a
-              routerLink="/"
-              routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              [routerLinkActiveOptions]="{ exact: true }"
-              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
-              ariaCurrentWhenActive="page"
-              (click)="closeMenu()"
-            >
-              {{ 'nav.home' | t }}
-            </a>
-            <a
-              routerLink="/diensten"
-              routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
-              ariaCurrentWhenActive="page"
-              (click)="closeMenu()"
-            >
-              {{ 'nav.services' | t }}
-            </a>
-            <a
-              routerLink="/expertise"
-              routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
-              ariaCurrentWhenActive="page"
-              (click)="closeMenu()"
-            >
-              {{ 'nav.expertise' | t }}
-            </a>
-            <a
-              routerLink="/contact"
-              routerLinkActive="bg-primary-fixed text-primary font-semibold"
-              class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
-              ariaCurrentWhenActive="page"
-              (click)="closeMenu()"
-            >
-              {{ 'nav.contact' | t }}
-            </a>
+            @for (item of navItems; track item.route) {
+              <a
+                [routerLink]="item.route"
+                routerLinkActive="bg-primary-fixed text-primary font-semibold"
+                [routerLinkActiveOptions]="{ exact: item.exact }"
+                class="focus-ring rounded-lg px-4 py-3 text-on-surface-variant transition-[background-color,color] duration-200 hover:bg-primary-fixed/50 hover:text-primary"
+                ariaCurrentWhenActive="page"
+                (click)="closeMenu()"
+              >
+                {{ item.labelKey | t }}
+              </a>
+            }
           </nav>
 
           <a
@@ -185,6 +139,7 @@ export class SiteHeaderComponent {
   protected readonly i18n = inject(I18nService);
   protected readonly mobileMenuId = 'site-mobile-navigation';
   protected readonly menuOpen = signal(false);
+  protected readonly navItems = NAV_ITEMS;
 
   protected setLanguage(language: Language): void {
     this.i18n.setLanguage(language);
