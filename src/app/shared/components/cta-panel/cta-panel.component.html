@@ -1,0 +1,41 @@
+@if (centered()) {
+  <section class="mx-auto mt-24 max-w-[1200px] px-6 pb-16 text-center md:px-8">
+    <div class="rounded-xl border border-outline-variant bg-white px-8 py-16 shadow-sm">
+      <h2 class="text-balance mb-4 font-headline-lg text-headline-lg text-on-surface">
+        {{ title() }}
+      </h2>
+      <p class="text-pretty mx-auto mb-10 max-w-xl font-body-md text-on-surface-variant">
+        {{ description() }}
+      </p>
+      <div class="flex flex-col justify-center gap-4 sm:flex-row">
+        <app-button [route]="primaryRoute()" size="md">
+          {{ primaryLabel() }}
+        </app-button>
+        @if (secondaryLabel() && secondaryRoute()) {
+          <app-button [route]="secondaryRoute()!" size="md" variant="secondary">
+            {{ secondaryLabel() }}
+          </app-button>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="mx-auto max-w-[1200px] px-6 py-24 md:px-8">
+    <div
+      class="flex flex-col items-center justify-between gap-12 rounded-xl border border-outline bg-white p-12 shadow-sm md:flex-row"
+    >
+      <div class="max-w-2xl">
+        <h2 class="text-balance mb-4 font-headline-lg text-on-surface">{{ title() }}</h2>
+        <p class="text-pretty font-body-lg text-on-surface-variant">{{ description() }}</p>
+      </div>
+      <div class="flex w-full flex-col gap-4 md:w-auto">
+        <app-button [route]="primaryRoute()" size="lg">
+          {{ primaryLabel() }}
+        </app-button>
+        @if (note()) {
+          <p class="text-center font-label-sm text-gray-500">{{ note() }}</p>
+        }
+      </div>
+    </div>
+  </section>
+}

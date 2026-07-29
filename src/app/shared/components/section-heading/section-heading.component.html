@@ -1,0 +1,11 @@
+<div [class]="wrapperClass()">
+  <h2 [class]="titleClass()">{{ title() }}</h2>
+
+  @if (description()) {
+    <p [class]="descriptionClass()">{{ description() }}</p>
+  }
+
+  @if (showAccent()) {
+    <div [class]="accentClass()"></div>
+  }
+</div>

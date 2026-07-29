@@ -5,13 +5,7 @@ import { I18nService } from '../../../core/i18n/i18n.service';
 
 @Component({
   selector: 'app-form-field-error',
-  template: `
-    @if (shouldShow()) {
-      <p class="text-sm text-error" role="alert">
-        {{ errorMessage() }}
-      </p>
-    }
-  `,
+  templateUrl: './form-field-error.component.html',
 })
 export class FormFieldErrorComponent {
   private readonly i18n = inject(I18nService);
