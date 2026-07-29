@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -29,7 +30,7 @@ const VARIANT_CLASSES: Record<string, string> = {
 
 @Component({
   selector: 'app-button',
-  imports: [RouterLink],
+  imports: [RouterLink, NgTemplateOutlet],
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {

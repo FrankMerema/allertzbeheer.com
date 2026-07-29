@@ -1,13 +1,17 @@
+<ng-template #label>
+  <ng-content></ng-content>
+</ng-template>
+
 @if (route()) {
   <a [routerLink]="route()!" [class]="classes()">
-    <ng-content></ng-content>
+    <ng-container [ngTemplateOutlet]="label"></ng-container>
   </a>
 } @else if (href()) {
   <a [attr.href]="href()" [class]="classes()">
-    <ng-content></ng-content>
+    <ng-container [ngTemplateOutlet]="label"></ng-container>
   </a>
 } @else {
   <button [type]="type()" [class]="classes()">
-    <ng-content></ng-content>
+    <ng-container [ngTemplateOutlet]="label"></ng-container>
   </button>
 }
