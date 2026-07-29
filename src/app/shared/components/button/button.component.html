@@ -1,0 +1,13 @@
+@if (route()) {
+  <a [routerLink]="route()!" [class]="classes()">
+    <ng-content></ng-content>
+  </a>
+} @else if (href()) {
+  <a [attr.href]="href()" [class]="classes()">
+    <ng-content></ng-content>
+  </a>
+} @else {
+  <button [type]="type()" [class]="classes()">
+    <ng-content></ng-content>
+  </button>
+}

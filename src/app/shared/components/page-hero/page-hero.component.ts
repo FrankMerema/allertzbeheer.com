@@ -1,10 +1,10 @@
 import { Component, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-page-hero',
-  imports: [RouterLink, TranslatePipe],
+  imports: [ButtonComponent, TranslatePipe],
   templateUrl: './page-hero.component.html',
 })
 export class PageHeroComponent {

@@ -3,12 +3,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { I18nService } from '../../i18n/i18n.service';
 import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 import type { Language } from '../../i18n/translations';
 import { NAV_ITEMS } from '../nav-items';
 
 @Component({
   selector: 'app-site-header',
-  imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe, ButtonComponent],
   templateUrl: './site-header.component.html',
 })
 export class SiteHeaderComponent {

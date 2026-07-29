@@ -65,12 +65,13 @@
         </button>
       </div>
 
-      <a
-        routerLink="/contact"
-        class="focus-ring hidden items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 py-2.5 text-center font-label-sm text-label-sm font-medium text-on-primary transition-[filter] duration-200 hover:brightness-110 md:inline-flex md:min-w-[11rem] md:px-6"
+      <app-button
+        route="/contact"
+        size="sm"
+        extraClass="hidden whitespace-nowrap text-center md:inline-flex md:min-w-[11rem]"
       >
         {{ 'nav.contactCta' | t }}
-      </a>
+      </app-button>
 
       <button
         type="button"
@@ -107,13 +108,14 @@
         }
       </nav>
 
-      <a
-        routerLink="/contact"
-        class="focus-ring mt-4 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 font-label-sm text-label-sm font-medium text-on-primary transition-[filter] duration-200 hover:brightness-110"
+      <app-button
+        route="/contact"
+        size="sm"
+        extraClass="mt-4 inline-flex w-full"
         (click)="closeMenu()"
       >
         {{ 'nav.contactCta' | t }}
-      </a>
+      </app-button>
     </div>
   }
 </header>

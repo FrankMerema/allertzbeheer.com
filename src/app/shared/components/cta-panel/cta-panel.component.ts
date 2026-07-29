@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-cta-panel',
-  imports: [RouterLink],
+  imports: [ButtonComponent],
   templateUrl: './cta-panel.component.html',
 })
 export class CtaPanelComponent {
